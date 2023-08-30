@@ -1,0 +1,14 @@
+$primary : #10815C;
+$secondary : #F6CB1B;
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;800;900&display=swap');
+// @import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+ @import'../node_modules/react-toastify/dist/ReactToastify.min.css';
+
+//  ../node_modules/react-toastify/dist/ReactToastify.min.css
+
+ @font-face {
+    font-family: hanoble;
+    src:url('./assets//fonts/Hanoble.ttf');
+}

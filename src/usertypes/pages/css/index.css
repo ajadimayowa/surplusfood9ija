@@ -1,0 +1,76 @@
+.main{
+    height: 85vh;
+    padding: 2%;
+}
+
+.banner {
+    min-height: 70vh;
+    background-image: url('../../../assets/images/webBg.svg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.banner-intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.navLinks{
+    display: flex;
+}
+
+.phrase{
+    font-size: 5em;
+}
+
+.cap{
+ text-align: left;
+}
+
+.sectTwo{
+    min-height: 30vh;
+}
+
+@media screen and (max-width :768px){
+    .navLinks{
+        display: none;
+        background-color: pink;
+    }
+
+    #loginButton {
+        display: none;
+    }
+    .phrase{
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .cap{
+        text-align: center;
+       }
+
+    .banner-intro{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .banner-content{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        
+    }
+
+    .sectTwo{
+        display: flex;
+        flex-direction: column;
+        padding: 5%;
+    }
+    
+}

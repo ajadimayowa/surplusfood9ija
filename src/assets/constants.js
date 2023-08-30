@@ -1,0 +1,7 @@
+const serviceCaptions = [
+    {
+        icon : ''
+    },
+    {},
+    {}
+]
