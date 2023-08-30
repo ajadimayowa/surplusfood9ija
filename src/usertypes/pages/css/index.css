@@ -172,6 +172,11 @@
 
     .deal-section .right-deal-banner{
       text-align: center;
+      width: 100%;
+    }
+
+    .timerContainer{
+        width: 100%;
     }
 
     .sectTwo{

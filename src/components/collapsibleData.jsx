@@ -3,7 +3,7 @@ import { Collapse, Col, Card } from "react-bootstrap";
 
 const CollapsableData = ({ data }) => {
     const [on, setOn] = useState(false);
-    const [onFirst, setOnFirst] = useState(true);
+    const [onFirst, setOnFirst] = useState(false);
     return (
         <Card className="rounded rounded-0 shadow shadow-lg border border-1">
             <Card.Body>
