@@ -93,7 +93,7 @@ const Homepage = () => {
 
     ]
     return (
-        <div className="container-fluid p-0 w-100" style={{ overflow: 'hidden' }}>
+        <div className="container-fluid m-0 p-0 w-100" style={{ overflow: 'hidden' }}>
 
             <div
                 className="w-100 shadow-sm px-4 py-0 bg-info
@@ -127,7 +127,7 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="main p-0" style={{ overflowY: 'auto', overflowX: 'hidden' }}>
-                <div className="banner d-flex justify-content-center align-items-center bg-danger w-100">
+                <div className="banner d-flex justify-content-center align-items-center w-100">
                     <div
                         className="banner-intro p-3" style={{ width: '80%' }}>
                         <div className="p-5 banner-content">
@@ -141,7 +141,7 @@ const Homepage = () => {
                                 essentials, household items, and more, all available at your
                                 fingertips from the comfort of your own home.
                             </p>
-                            <Link to='/app/reg'>
+                            <Link className="d-flex justify-content-center" to='/app/reg' style={{textDecoration:'none'}}>
                             <Button className="mt-3 bg-light py-3 text-primary"
                                 style={{ fontWeight: '600' }}
                             >Get Started
@@ -180,7 +180,7 @@ const Homepage = () => {
                 "
                     style={{ backgroundColor: '#fff' }}>
                     <h4>Explore Awesome Products</h4>
-                    <h2 style={{ fontWeight: '700' }}>With Customized Shopping Experience</h2>
+                    <h2 className="text-center" style={{ fontWeight: '700' }}>With Customized Shopping Experience</h2>
                 </div>
 
                 <div className="sectAdGoods mt-5 w-100 px-4
@@ -263,7 +263,7 @@ const Homepage = () => {
 
                 </div>
                 <div className="footerRow m-0  mt-5 w-100 px-4
-                justify-content-center align-items-center gap-3"
+                justify-content-center align-items-center gap-3 py-4"
                     style={{ backgroundColor: '#F9F9F9', minHeight:'15em' }}>
                         <Col className="d-flex align-items-start">
                             <img src={logoFooter} alt="footer logo"/>
@@ -307,7 +307,12 @@ const Homepage = () => {
                     
                 </div>
             </div>
-            <div className="d-flex justify-content-center">Footer</div>
+            <div style={{minHeight:'5em', fontSize:'1.5em'}} className="d-flex justify-content-end gap-3 px-5 bg-transparent">
+            <Link to='https://api.whatsapp.com/message/NSIQY7RHQ2W4C1?autoload=1&app_absent=0'>
+                <i className="bi bi-whatsapp"></i></Link>
+            <Link to='https://www.instagram.com/surplusfood9ja/'><i className="bi bi-instagram"></i></Link>
+           
+            </div>
 
         </div>
     )
