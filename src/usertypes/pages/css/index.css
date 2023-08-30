@@ -8,13 +8,71 @@
     background-image: url('../../../assets/images/webBg.svg');
     background-size: cover;
     background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.banner-intro{
+.left-banner {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    /* background-color: pink; */
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+}
+
+.left-banner #buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    /* background-color: yellow; */
+    width: 100%;
+    justify-content: start;
+    
+}
+
+.right-banner {
+    display: flex;
+    max-height: 100vh;
+    /* background-color: pink; */
+    align-items: center;
+    justify-content: center;
+}
+
+.right-banner div {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-banner #introText {
+   font-weight: 600;
+   font-size: 3em;
+}
+
+.deal-section{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+    padding-inline: 2%;
+    padding: 3%;
+    background-color: #EFFBF9;
+}
 
+.left-deal-banner div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+.right-deal-banner #dealIntro{
+    font-size: 3em;
+    font-weight: 600;
 }
 
 
@@ -36,6 +94,7 @@
 
 .phrase{
     font-size: 5em;
+    background-color: red;
 }
 
 .cap{
@@ -55,6 +114,10 @@
     display: flex;
     flex-direction: row;
     gap: 50px;
+}
+
+.footerMobile{
+    display: none;
 }
 
 @media screen and (max-width :768px){
@@ -78,25 +141,37 @@
         display: none;
         background-color: red;
     }
-
-    .cap{
-        text-align: center;
-       }
-
-    .banner-intro{
-        display: flex;
+    .banner {
         flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
-    
     }
 
-    .banner-content{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        gap: 5px;
+    .left-banner {
+       min-width: 100%;
+       padding-inline: 10%;
         
+     }
+    .left-banner #introText {
+       text-align: center;
+       width: 100%;
+       color: #fff;
+    }
+
+    .left-banner #introDesc {
+        text-align: center;
+        width: 100%;
+     }
+
+     .left-banner #buttonsContainer {
+       justify-content: center;
+       gap: 15px;
+     }
+
+     .deal-section{
+        flex-direction: column;
+    }
+
+    .deal-section .right-deal-banner{
+      text-align: center;
     }
 
     .sectTwo{
@@ -116,10 +191,20 @@
         flex-direction: column;
     }
 
+    .footerMobile{
+        display: flex;
+        width: 100%;
+    }
+
     .footerRow{
-        display: flex; 
+        display: none; 
         flex-direction: column; 
         justify-content: center;
+  }
+
+  .footerMobile{
+    display: block;
+    width: 100%;
   }
 
     
