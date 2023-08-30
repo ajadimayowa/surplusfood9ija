@@ -121,7 +121,7 @@ const Homepage = () => {
                     <Link id="loginButton" to='/app/reg'>
                         <Button>Sign in</Button>
                     </Link>
-                    <div className="toggler text-primary gap-4" style={{ fontSize: '1.7em', cursor: 'pointer' }}>
+                    <div className="toggler text-primary gap-3" style={{ fontSize: '1.3em', cursor: 'pointer' }}>
                         <i className="bi bi-search"></i>
                         <i className="bi bi-text-left"></i>
                     </div>
@@ -227,13 +227,13 @@ const Homepage = () => {
 
                     <div className="left-deal-banner">
                         <div className="pt-5">
-                            <img src={pepperDeal} width="350px" height="210px" alt="pepper basket" />
+                            <img src={pepperDeal} width="300px" height="170px" alt="pepper basket" />
                         </div>
                     </div>
 
-                    <div className="right-deal-banner w-50">
+                    <div className="right-deal-banner">
                         <p className="p-0 m-0">Weekly offer</p>
-                        <h4 id="dealIntro">
+                        <h4 className="w-100" id="dealIntro">
                             Check Out Deal of the Day.
                         </h4>
                         <p className="p-0 m-0 text-danger" id="dealDesc" style={{ color: '#D8F237' }}>
@@ -242,7 +242,7 @@ const Homepage = () => {
 
                         {/* timer */}
 
-                        <div className="gap-3" id="timerContainer">
+                        <div className="gap-3 w-100 bg-danger" id="timerContainer">
                             Expires in :
                             <Badge>02</Badge>
                             :
