@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './css/index.css';
-import { Button, Col } from 'react-bootstrap';
+import { Badge, Button, Card, Col } from 'react-bootstrap';
 import logo from '../../assets/images/logo.svg';
 import logoFooter from '../../assets/images/logotp.svg';
 import homePic from '../../assets/images/homePicRight.png';
@@ -10,6 +10,7 @@ import dollarIcon from '../../assets/icons/dollarIcon.svg';
 import truckIcon from '../../assets/icons/truckIcon.svg';
 import storeIcon from '../../assets/icons/storeIcon.svg';
 import { footerContents } from "../../assets/constants";
+import CollapsableData from "../../components/collapsibleData";
 
 const Homepage = () => {
     const serviceCaptions = [
@@ -127,31 +128,43 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="main p-0" style={{ overflowY: 'auto', overflowX: 'hidden' }}>
-                <div className="banner d-flex justify-content-center align-items-center w-100">
-                    <div
-                        className="banner-intro p-3" style={{ width: '80%' }}>
-                        <div className="p-5 banner-content">
-                            <h5 className="phrase text-light" style={{ fontFamily: 'hanoble' }}>
-                                We are the New Face
-                                of Grocery Shopping.
-                            </h5>
-                            <p className="cap p-0 m-0" style={{ color: '#D8F237' }}>
-                                Welcome to our online grocery store, your one-stop-shop for all your
-                                grocery needs. We offer a wide variety of fresh produce, pantry
-                                essentials, household items, and more, all available at your
-                                fingertips from the comfort of your own home.
-                            </p>
-                            <Link className="d-flex justify-content-center" to='/app/reg' style={{textDecoration:'none'}}>
-                            <Button className="mt-3 bg-light py-3 text-primary"
-                                style={{ fontWeight: '600' }}
-                            >Get Started
-                            </Button>
+                <div className="banner gap-1 w-100">
+                    <div className="left-banner w-50">
+                        <h5 className="text-light" id="introText" style={{ fontFamily: 'hanoble' }}>
+                            We are the New Face
+                            of Grocery Shopping.
+                        </h5>
+                        <p className="p-0 m-0" id="introDesc" style={{ color: '#D8F237' }}>
+                            Welcome to our online grocery store, your one-stop-shop for all your
+                            grocery needs. We offer a wide variety of fresh produce, pantry
+                            essentials, household items, and more, all available at your
+                            fingertips from the comfort of your own home.
+                        </p>
+
+                        {/* buttons */}
+
+                        <div className="gap-3" id="buttonsContainer">
+                            <Link className="d-flex justify-content-center" to='/app/reg' style={{ textDecoration: 'none' }}>
+                                <Button className="mt-3 bg-light py-3 text-primary"
+                                    style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
+                                >Get Started
+                                </Button>
+                            </Link>
+
+                            <Link className="d-flex justify-content-center" to='/app/reg' style={{ textDecoration: 'none' }}>
+                                <Button className="mt-3 bg-primary py-3 text-light border-light"
+                                    style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
+                                >Login
+                                </Button>
                             </Link>
                         </div>
-                        <div className="pt-5">
-                            <img src={homePic} width="95%" height="96%" alt="happy buyer" />
-                        </div>
 
+                    </div>
+
+                    <div className="right-banner">
+                        <div className="pt-5">
+                            <img src={homePic} width="350px" height="360px" alt="happy buyer" />
+                        </div>
                     </div>
                 </div>
                 <div className="sectTwo w-100 d-flex 
@@ -210,22 +223,34 @@ const Homepage = () => {
                     }
                 </div>
 
-                <div className="sectAdGoods mt-5 w-100 px-4
-                justify-content-center gap-3 align-items-center
-                "
-                    style={{ backgroundColor: '#fff' }}>
-                    <div className="d-flex justify-content-center gap-5"
-                        style={{ backgroundColor: '#EFFBF9', minHeight: '15em', maxHeight: '15em', minWidth: '80%' }}>
-                        <div className="d-flex w-25 align-items-center justify-content-center">
-                            <img src={pepperDeal} alt="pepper basket" height="80%" />
+                <div className="deal-section mt-5 w-100">
+
+                    <div className="left-deal-banner">
+                        <div className="pt-5">
+                            <img src={pepperDeal} width="350px" height="210px" alt="pepper basket" />
                         </div>
-                        <div className="py-5 d-flex flex-column w-50 ">
-                            <p className="text-primary p-0 m-0">Weekly offer</p>
-                            <h4 style={{ fontWeight: '700', fontSize: '3em' }}>
-                                Check Out Deal of the Day.
-                            </h4>
-                            <h2 className="p-0 m-0 text-danger"> 10% Discount on every Bag Purchase!!!</h2>
+                    </div>
+
+                    <div className="right-deal-banner w-50">
+                        <p className="p-0 m-0">Weekly offer</p>
+                        <h4 id="dealIntro">
+                            Check Out Deal of the Day.
+                        </h4>
+                        <p className="p-0 m-0 text-danger" id="dealDesc" style={{ color: '#D8F237' }}>
+                            10% Discount on every basket of pepper Purchase!!!
+                        </p>
+
+                        {/* timer */}
+
+                        <div className="gap-3" id="timerContainer">
+                            Expires in :
+                            <Badge>02</Badge>
+                            :
+                            <Badge>02</Badge>
+                            :
+                            <Badge>44s</Badge>
                         </div>
+
                     </div>
                 </div>
 
@@ -243,7 +268,7 @@ const Homepage = () => {
                         {
                             testimonials.map((testimony) => (
                                 <div className=" d-flex gap-3 border border-1 border-primary p-2 rounded rounded-3"
-                                style={{maxWidth:'25em', maxHeight:'20em'}}>
+                                    style={{ maxWidth: '25em', maxHeight: '20em' }}>
                                     <div>
                                         <img src={testimony.ownerImg} alt="picture" height={150} />
                                     </div>
@@ -253,7 +278,7 @@ const Homepage = () => {
                                             <span>{testimony.rating}</span>
                                         </h6>
                                         <p>{testimony.words}</p>
-                                        <p style={{fontWeight:'600'}}>{testimony.name}</p>
+                                        <p style={{ fontWeight: '600' }}>{testimony.name}</p>
                                     </div>
                                 </div>
                             ))
@@ -262,56 +287,82 @@ const Homepage = () => {
 
 
                 </div>
+                <div className="p-3 w-100 d-flex justify-content-center bg-transparent">
+                   <Card className="shadow rounded rounded-4 d-flex flex-column gap-3 py-3 mt-3 px-5">
+                    
+                        <h4 style={{ fontFamily: 'hanoble' }}>
+                            Ready to get started?
+                        </h4>
+                        <p className="pr-5">
+                            Create an account in minutes <br/>
+                            and instantly become
+                            your <br/> own boss!
+                        </p>
+                        <div className="d-flex align-items-center gap-2 mb-2">
+                            <Button>Get started</Button>
+                            <p className="p-0 m-0">Contact Support</p>
+                        </div>
+                   
+                   </Card>
+                    
+
+                </div>
+
+                <div className="footerMobile w-100">
+                    {
+                        footerContents.map((footer)=>(<CollapsableData data={footer}/>))
+                    }
+                </div>
                 <div className="footerRow m-0  mt-5 w-100 px-4
                 justify-content-center align-items-center gap-3 py-4"
-                    style={{ backgroundColor: '#F9F9F9', minHeight:'15em' }}>
-                        <Col className="d-flex align-items-start">
-                            <img src={logoFooter} alt="footer logo"/>
-                            
-                        </Col>
-                        <Col className="d-flex flex-column justify-content-center">
-                            <h5>Company</h5>
-                            <ul className="p-0 m-0" style={{listStyle:'none'}}>
-                                {
-                                    footerContents.company.map((info)=>(<li><a>{info}</a></li>))
-                                }
-                            </ul>
-                        </Col>
-                        <Col className="d-flex flex-column justify-content-center">
-                            <h5>Features</h5>
-                            <ul className="p-0 m-0" style={{listStyle:'none'}}>
-                                {
-                                    footerContents.features.map((info)=>
-                                    (<li><a href="#" style={{textDecoration:'none',color:'black'}}>{info}</a></li>))
-                                }
-                            </ul>
-                        </Col>
-                        <Col className="d-flex flex-column justify-content-center">
-                            <h5>Resources</h5>
-                            <ul className="p-0 m-0" style={{listStyle:'none'}}>
-                                {
-                                    footerContents.resources.map((info)=>
-                                    (<li><a href="#" style={{textDecoration:'none',color:'black'}}>{info}</a></li>))
-                                }
-                            </ul>
-                        </Col>
-                        <Col className="d-flex flex-column justify-content-center">
-                            <h5>Contact us</h5>
-                            <ul className="p-0 m-0" style={{listStyle:'none'}}>
-                                {
-                                    footerContents.reachUs.map((info)=>
-                                    (<li><a href="#" style={{textDecoration:'none',color:'black'}}>{info}</a></li>))
-                                }
-                            </ul>
-                        </Col>
-                    
+                    style={{ backgroundColor: '#F9F9F9', minHeight: '15em' }}>
+                    <Col className="d-flex align-items-start">
+                        <img src={logoFooter} alt="footer logo" />
+
+                    </Col>
+                    <Col className="d-flex flex-column justify-content-center">
+                        <h5>Company</h5>
+                        <ul className="p-0 m-0" style={{ listStyle: 'none' }}>
+                            {
+                                footerContents[0].links.map((info) => (<li><a>{info}</a></li>))
+                            }
+                        </ul>
+                    </Col>
+                    <Col className="d-flex flex-column justify-content-center">
+                        <h5>Features</h5>
+                        <ul className="p-0 m-0" style={{ listStyle: 'none' }}>
+                            {
+                                footerContents[1].links.map((info) =>
+                                    (<li><a href="#" style={{ textDecoration: 'none', color: 'black' }}>{info}</a></li>))
+                            }
+                        </ul>
+                    </Col>
+                    <Col className="d-flex flex-column justify-content-center">
+                        <h5>Resources</h5>
+                        <ul className="p-0 m-0" style={{ listStyle: 'none' }}>
+                            {
+                                footerContents[2].links.map((info) =>
+                                    (<li><a href="#" style={{ textDecoration: 'none', color: 'black' }}>{info}</a></li>))
+                            }
+                        </ul>
+                    </Col>
+                    <Col className="d-flex flex-column justify-content-center">
+                        <h5>Contact us</h5>
+                        <ul className="p-0 m-0" style={{ listStyle: 'none' }}>
+                            {
+                                footerContents[3].links.map((info) =>
+                                    (<li><a href="#" style={{ textDecoration: 'none', color: 'black' }}>{info}</a></li>))
+                            }
+                        </ul>
+                    </Col>
+
                 </div>
             </div>
-            <div style={{minHeight:'5em', fontSize:'1.5em', backgroundColor:'#fff', zIndex:30}} className="d-flex justify-content-end gap-3 px-5">
-            <Link to='https://api.whatsapp.com/message/NSIQY7RHQ2W4C1?autoload=1&app_absent=0'>
-                <i className="bi bi-whatsapp"></i></Link>
-            <Link to='https://www.instagram.com/surplusfood9ja/'><i className="bi bi-instagram"></i></Link>
-           
+            <div style={{ minHeight: '5em', fontSize: '1.5em', backgroundColor: '#fff', zIndex: 30 }} className="d-flex justify-content-end gap-3 px-5">
+                <Link to='https://api.whatsapp.com/message/NSIQY7RHQ2W4C1?autoload=1&app_absent=0'>
+                    <i className="bi bi-whatsapp"></i></Link>
+                <Link to='https://www.instagram.com/surplusfood9ja/'><i className="bi bi-instagram"></i></Link>
+
             </div>
 
         </div>
