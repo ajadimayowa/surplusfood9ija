@@ -307,7 +307,7 @@ const Homepage = () => {
                     
                 </div>
             </div>
-            <div style={{minHeight:'5em', fontSize:'1.5em', backgroundColor:'#fff'}} className="d-flex justify-content-end gap-3 px-5">
+            <div style={{minHeight:'5em', fontSize:'1.5em', backgroundColor:'#fff', zIndex:30}} className="d-flex justify-content-end gap-3 px-5">
             <Link to='https://api.whatsapp.com/message/NSIQY7RHQ2W4C1?autoload=1&app_absent=0'>
                 <i className="bi bi-whatsapp"></i></Link>
             <Link to='https://www.instagram.com/surplusfood9ja/'><i className="bi bi-instagram"></i></Link>
