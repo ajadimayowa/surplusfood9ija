@@ -17,6 +17,19 @@
 
 }
 
+
+.footerRow{
+      display: flex;  
+      justify-content: start;
+}
+
+.search-form{
+    display: flex;
+}
+
+.toggler {
+    display: none;
+}
 .navLinks{
     display: flex;
 }
@@ -33,18 +46,37 @@
     min-height: 30vh;
 }
 
+.sectAdGoods{
+    display: flex;
+    flex-direction: row;
+}
+
+.testimonials{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
 @media screen and (max-width :768px){
     .navLinks{
         display: none;
         background-color: pink;
     }
 
+    .toggler {
+        display: flex;
+    }
     #loginButton {
         display: none;
     }
     .phrase{
         font-size: 3em;
         text-align: center;
+    }
+
+    .search-form{
+        display: none;
+        background-color: red;
     }
 
     .cap{
@@ -72,5 +104,23 @@
         flex-direction: column;
         padding: 5%;
     }
+
+    .sectAdGoods{
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        background-color: pink;
+    }
+
+    .testimonials{
+        flex-direction: column;
+    }
+
+    .footerRow{
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center;
+  }
+
     
 }
