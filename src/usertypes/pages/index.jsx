@@ -44,7 +44,7 @@ const Homepage = (props) => {
             prodImg: 'https://images.squarespace-cdn.com/content/v1/58b72eac46c3c480fcbe7366/1551906370876-2QFYXGTV60734RJA74NX/Risotto.png',
             category: 'Grains',
             name: 'Rice',
-            desc: 'Shop smart! Save big with our economical grocery shopping online store!',
+            desc: 'We have the best suppliers in the market for all type of grains.',
             title: 'Quality at best price',
             bgColor1: '',
             bgColor2: ''
@@ -53,16 +53,15 @@ const Homepage = (props) => {
             prodImg: 'https://neogric.com/wp-content/uploads/2021/03/Nigerian-and-African-Yam-Tubers-Neogric-2.jpg',
             category: 'Tubbers',
             name: 'Yam',
-            desc: 'Shop smart! Save big with our economical grocery shopping online store!',
-            title: 'Quality at best price',
+            desc: 'Our tubers are sourced from the finest farms around the country.',
             bgColor1: '',
             bgColor2: ''
         },
         {
-            prodImg: 'https://freshtodommot.com/cdn/shop/products/elubo-yam-flour.jpg?v=1603153355',
-            category: 'Flours',
-            name: 'Elubo',
-            desc: 'Shop smart! Save big with our economical grocery shopping online store!',
+            prodImg: 'https://www.transparentpng.com/thumb/vegetable/mw4OSK-vegetables-basket-png.png',
+            category: 'Peppers',
+            name: 'Pepper',
+            desc: 'Fresh pepper with quality taste to aid your cooking.',
             title: 'Quality at best price',
             bgColor1: '',
             bgColor2: ''
@@ -71,7 +70,7 @@ const Homepage = (props) => {
             prodImg: 'https://pngimg.com/d/sunflower_oil_PNG35.png',
             category: 'Oil',
             name: 'Refined Healthy Oil',
-            desc: 'Shop smart! Save big with our economical grocery shopping online store!',
+            desc: 'We make the time to get you the oil you need, from the best sellers out there.',
             title: 'Quality at best price',
             bgColor1: '',
             bgColor2: ''
