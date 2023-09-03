@@ -13,7 +13,7 @@ export const footerContents = [
     links: ["FAQs", "Blog"],
   },
   {
-    title: "ReachUs",
+    title: "Reach Us",
     links: [
       "15, Ajanlekoko, Victoria Island, Lagos.",
       "hi@surplusfood.ng",

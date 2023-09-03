@@ -92,6 +92,25 @@
     display: flex;
 }
 
+.navLinks li a{
+    text-decoration: none;
+}
+
+.navLinks li a{
+   color: black;
+}
+
+.navLinks li a:hover{
+    color: rgb(121, 121, 121);
+    text-decoration: none;
+}
+
+.active {
+    color: #0E6C4D;
+}
+
+
+
 .phrase{
     font-size: 5em;
     background-color: red;
@@ -118,6 +137,26 @@
 
 .footerMobile{
     display: none;
+}
+
+#grains{
+    background-image: linear-gradient(to right,  #0E6C4D, rgb(0,0,0,0.8));
+    color: #fff;
+}
+
+#tubs{
+    background-image: linear-gradient(to right,  #8E8635, #6F6717);
+    color: #fff;
+}
+
+#flours{
+    background-image: linear-gradient(to right,  #8DA900, #607700);
+    color: #fff;
+}
+
+#bevs{
+    background-image: linear-gradient(to right,  #007660, #02493C);
+    color: #fff;
 }
 
 @media screen and (max-width :768px){

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './css/index.css';
 import { Badge, Button, Card, Col } from 'react-bootstrap';
 import logo from '../../assets/images/logo.svg';
@@ -11,8 +11,14 @@ import truckIcon from '../../assets/icons/truckIcon.svg';
 import storeIcon from '../../assets/icons/storeIcon.svg';
 import { footerContents } from "../../assets/constants";
 import CollapsableData from "../../components/collapsibleData";
+import { useLocation } from "react-router-dom";
+import { getWeather} from "../app/controllers/services";
 
-const Homepage = () => {
+const Homepage = (props) => {
+    const currentPath = useLocation().pathname;
+
+    console.log(currentPath);
+
     const serviceCaptions = [
         {
             icon: dollarIcon,
@@ -35,7 +41,7 @@ const Homepage = () => {
 
     const advertProducts = [
         {
-            prodImg: 'https://thumbs.dreamstime.com/b/grocery-groceries-symbol-as-supermarket-shopping-cart-milk-eggs-cheese-meat-bread-fish-vegetables-fruit-as-icon-134030070.jpg',
+            prodImg: 'https://images.squarespace-cdn.com/content/v1/58b72eac46c3c480fcbe7366/1551906370876-2QFYXGTV60734RJA74NX/Risotto.png',
             category: 'Grains',
             name: 'Rice',
             desc: 'Shop smart! Save big with our economical grocery shopping online store!',
@@ -62,9 +68,9 @@ const Homepage = () => {
             bgColor2: ''
         },
         {
-            prodImg: 'https://i0.wp.com/nextcashandcarry.com.ng/wp-content/uploads/2022/05/20210412_WL_NI_MILO-POUCH-800GR_A0_01.webp?fit=500%2C700&ssl=1',
-            category: 'Beverages',
-            name: 'Milo',
+            prodImg: 'https://pngimg.com/d/sunflower_oil_PNG35.png',
+            category: 'Oil',
+            name: 'Refined Healthy Oil',
             desc: 'Shop smart! Save big with our economical grocery shopping online store!',
             title: 'Quality at best price',
             bgColor1: '',
@@ -93,20 +99,27 @@ const Homepage = () => {
         }
 
     ]
+    const fetch = async () => {
+        
+    }
+
+    useEffect(() => {
+        fetch()
+    })
     return (
         <div className="container-fluid m-0 p-0 w-100" style={{ overflow: 'hidden' }}>
 
             <div
-                className="w-100 shadow-sm px-4 py-0 bg-info
+                className="w-100 shadow-sm px-4 py-0
             justify-content-between align-items-center navbar navbar-expand-lg navbar-light bg-light">
                 <a className="navbar-brand" href="#">
                     <img src={logo} width="100" height="80" alt="logo" />
                 </a>
                 <div className="d-flex gap-4 justify-content-end align-items-center">
                     <ul className="navLinks gap-5 align-items-center p-0 m-0" style={{ listStyle: 'none', }}>
-                        <li>Home</li>
-                        <li>How it works</li>
-                        <li>Support</li>
+                        <li ><Link to='/' style={{ color: currentPath == '/' ? '#0E6C4D' : '#00000' }}>Home</Link></li>
+                        <li><Link to='/docs' style={{ color: currentPath == '/docs' ? '#0E6C4D' : '#00000' }}>How it works</Link></li>
+                        <li><Link to='/support' style={{ color: currentPath == '/support' ? '#0E6C4D' : '#00000' }}>Support</Link></li>
                     </ul>
                     <form className="search-form gap-2 justify-content-end align-items-center">
                         <input
@@ -118,7 +131,7 @@ const Homepage = () => {
                             style={{ minHeight: '2em' }}
                             className="btn btn-outline-success my-2 my-sm-0 py-0" type="submit">Search</button>
                     </form>
-                    <Link id="loginButton" to='/app/reg'>
+                    <Link id="loginButton" to='/app/login'>
                         <Button>Sign in</Button>
                     </Link>
                     <div className="toggler text-primary gap-3" style={{ fontSize: '1.3em', cursor: 'pointer' }}>
@@ -151,7 +164,7 @@ const Homepage = () => {
                                 </Button>
                             </Link>
 
-                            <Link className="d-flex justify-content-center" to='/app/reg' style={{ textDecoration: 'none' }}>
+                            <Link className="d-flex justify-content-center" to='/app/login' style={{ textDecoration: 'none' }}>
                                 <Button className="mt-3 bg-primary py-3 text-light border-light"
                                     style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
                                 >Login
@@ -173,8 +186,8 @@ const Homepage = () => {
                 "
                     style={{ backgroundColor: '#F4F4F4' }}>
                     {
-                        serviceCaptions.map((captions) => (
-                            <div>
+                        serviceCaptions.map((captions,index) => (
+                            <div key={index}>
                                 <div className="p-2 text-center"
                                     style={{ backgroundColor: captions.bgColor }}><img src={captions.icon} /></div>
                                 <div className="text-center">
@@ -201,22 +214,23 @@ const Homepage = () => {
                 "
                     style={{ backgroundColor: '#fff' }}>
                     {
-                        advertProducts.map((prod) => (
-                            <div className="d-flex flex-column p-4 justify-content-center align-items-center"
+                        advertProducts.map((prod, index) => (
+                            <div key={index} className="d-flex flex-column p-4 justify-content-center align-items-center"
                                 style={{ maxWidth: '80%' }}>
                                 <div className="w-100 d-flex flex-column align-items-center">
                                     <div className="d-flex justify-content-between w-100">
                                         <h5>{prod.category}</h5>
-                                        <p className="p-0 m-0">prod rating</p>
+                                        <i className="bi bi-star-fill text-primary"></i>
                                     </div>
                                     <div>
                                         <img src={prod.prodImg} height={200} alt="product image" />
                                     </div>
                                 </div>
-                                <div className="d-flex flex-column p-3 align-items-center w-100 rounded-bottom-5 bg-info">
+                                <div className="d-flex flex-column p-3 align-items-center w-100 rounded-bottom-5 "
+                                id={index == 0 ? "grains" :index == 1 ? "tubs":index == 2 ? "flours" :index == 3 ? "bevs":'newCat'}>
                                     <h4>{prod.name}</h4>
                                     <p className="text-center">{prod.desc}</p>
-                                    <Button>Shop now</Button>
+                                    <Button style={{backgroundColor:'#FF7C02'}}>Shop now</Button>
                                 </div>
                             </div>
                         ))
@@ -242,7 +256,7 @@ const Homepage = () => {
 
                         {/* timer */}
 
-                        <div className="gap-3 w-100 bg-danger" id="timerContainer">
+                        <div className="gap-3 w-100" id="timerContainer">
                             Expires in :
                             <Badge>02</Badge>
                             :
@@ -256,8 +270,7 @@ const Homepage = () => {
 
 
                 <div className="sectTest d-flex flex-column mt-5 w-100 px-4
-                justify-content-center gap-3 align-items-center
-                "
+                justify-content-center gap-3 align-items-center"
                     style={{ backgroundColor: '#fff' }}>
                     <h1 className="text-center">
                         See how <span className="text-primary">Surplus food</span> is<br />
@@ -266,15 +279,15 @@ const Homepage = () => {
 
                     <div className="testimonials gap-4">
                         {
-                            testimonials.map((testimony) => (
-                                <div className=" d-flex gap-3 border border-1 border-primary p-2 rounded rounded-3"
+                            testimonials.map((testimony, index) => (
+                                <div key={index} className=" d-flex gap-3 border border-1 border-primary p-2 rounded rounded-3"
                                     style={{ maxWidth: '25em', maxHeight: '20em' }}>
                                     <div>
                                         <img src={testimony.ownerImg} alt="picture" height={150} />
                                     </div>
                                     <div>
                                         <h6 className="d-flex gap-2">
-                                            <span><i class="bi bi-star-fill text-primary"></i></span>
+                                            <span><i className="bi bi-star-fill text-primary"></i></span>
                                             <span>{testimony.rating}</span>
                                         </h6>
                                         <p>{testimony.words}</p>
@@ -288,29 +301,36 @@ const Homepage = () => {
 
                 </div>
                 <div className="p-3 w-100 d-flex justify-content-center bg-transparent">
-                   <Card className="shadow rounded rounded-4 d-flex flex-column gap-3 py-3 mt-3 px-5">
-                    
+                    <Card className="shadow rounded rounded-4 d-flex flex-column gap-3 py-3 mt-3 px-5">
+
                         <h4 style={{ fontFamily: 'hanoble' }}>
                             Ready to get started?
                         </h4>
                         <p className="pr-5">
-                            Create an account in minutes <br/>
+                            Create an account in minutes <br />
                             and instantly become
-                            your <br/> own boss!
+                            your <br /> own boss!
                         </p>
                         <div className="d-flex align-items-center gap-2 mb-2">
+                            <Link to='/app/reg'>
                             <Button>Get started</Button>
+                            </Link>
+                            
                             <p className="p-0 m-0">Contact Support</p>
                         </div>
-                   
-                   </Card>
-                    
+
+                    </Card>
+
 
                 </div>
 
                 <div className="footerMobile w-100">
                     {
-                        footerContents.map((footer)=>(<CollapsableData data={footer}/>))
+                        footerContents.map((footer, index) => (
+                        <div key={index}>
+<CollapsableData data={footer} />
+                        </div>
+                        ))
                     }
                 </div>
                 <div className="footerRow m-0  mt-5 w-100 px-4
@@ -324,7 +344,7 @@ const Homepage = () => {
                         <h5>Company</h5>
                         <ul className="p-0 m-0" style={{ listStyle: 'none' }}>
                             {
-                                footerContents[0].links.map((info) => (<li><a>{info}</a></li>))
+                                footerContents[0].links.map((info, index) => (<li key={index}><a>{info}</a></li>))
                             }
                         </ul>
                     </Col>
@@ -332,8 +352,8 @@ const Homepage = () => {
                         <h5>Features</h5>
                         <ul className="p-0 m-0" style={{ listStyle: 'none' }}>
                             {
-                                footerContents[1].links.map((info) =>
-                                    (<li><a href="#" style={{ textDecoration: 'none', color: 'black' }}>{info}</a></li>))
+                                footerContents[1].links.map((info, index) =>
+                                    (<li key={index}><a href="#" style={{ textDecoration: 'none', color: 'black' }}>{info}</a></li>))
                             }
                         </ul>
                     </Col>
@@ -341,8 +361,8 @@ const Homepage = () => {
                         <h5>Resources</h5>
                         <ul className="p-0 m-0" style={{ listStyle: 'none' }}>
                             {
-                                footerContents[2].links.map((info) =>
-                                    (<li><a href="#" style={{ textDecoration: 'none', color: 'black' }}>{info}</a></li>))
+                                footerContents[2].links.map((info, index) =>
+                                    (<li key={index}><a href="#" style={{ textDecoration: 'none', color: 'black' }}>{info}</a></li>))
                             }
                         </ul>
                     </Col>
@@ -350,8 +370,8 @@ const Homepage = () => {
                         <h5>Contact us</h5>
                         <ul className="p-0 m-0" style={{ listStyle: 'none' }}>
                             {
-                                footerContents[3].links.map((info) =>
-                                    (<li><a href="#" style={{ textDecoration: 'none', color: 'black' }}>{info}</a></li>))
+                                footerContents[3].links.map((info, index) =>
+                                    (<li key={index}><a href="#" style={{ textDecoration: 'none', color: 'black' }}>{info}</a></li>))
                             }
                         </ul>
                     </Col>
