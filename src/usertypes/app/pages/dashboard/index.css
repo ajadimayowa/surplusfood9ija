@@ -1,8 +1,8 @@
-.container {
-    background-color: #fff;
-    width: 100%;
+.dashboard-container {
     display: flex;
     overflow-y: scroll;
+    min-height: 100vh;
+    overflow: auto;
 }
 
 .sidenavs li{
@@ -27,13 +27,15 @@ background-color: white;
 
 .topnav{
     background-color: #fff;
-    min-height: 5em;
-} 
+    min-height: 10vh;
+}  
 
 .mainpage {
     overflow-y: hidden;
     overflow-x: hidden;
+    min-height: 90vh;
     width: 100%;
+    background-color: pink;
 }
 
 .sidenav{
