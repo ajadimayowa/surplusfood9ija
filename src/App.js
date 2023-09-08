@@ -14,31 +14,45 @@ import ProductPage from "./usertypes/app/pages/dashboard/pages/products";
 import SalesPage from "./usertypes/app/pages/dashboard/pages/sales";
 import SettingsPage from "./usertypes/app/pages/dashboard/pages/settings";
 import AppReg from "./usertypes/app/pages/onboarding/pages/appReg";
-import './custom.scss'
+import LoaderPage from "./usertypes/pages/loaderpage";
+import HomeHolder from "./usertypes/pages/homeHolder";
+import AboutUs from "./usertypes/app/pages/others/aboutus";
+import TermsandCon from "./usertypes/app/pages/others/tandcon";
+import Support from "./usertypes/app/pages/others/support";
+import Privacy from "./usertypes/app/pages/others/privacy";
+import ContactUs from "./usertypes/app/pages/others/contactus";
+import "./custom.scss";
+import HowItWorks from "./usertypes/app/pages/others/howitworks";
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/doc" element={<AppHome />} />
-          <Route path="/support" element={<AppHome />} />
+          <Route path="/" element={<LoaderPage/>} />
+          <Route path="/surplus" element={<HomeHolder/>}>
+            <Route index element={<Homepage />}/>
+            <Route path="about-us" element={<AboutUs/>} />
+            <Route path="/surplus/how-it-works" element={<HowItWorks/>} />
+            <Route path="contact-us" element={<ContactUs/>} />
+            <Route path="t&c" element={<TermsandCon/>} />
+            <Route path="support" element={<Support />} />
+            <Route path="privacy" element={<Privacy/>} />    
+          </Route>
 
           {/* this part is for the app */}
           <Route path="/app" element={<AppHomePage />}>
-            
             <Route path="/app/home" element={<AppHome />} />
-            <Route path="/app/login" element={<AppLogin />} />
+            <Route index path="/app/login" element={<AppLogin />} />
             <Route path="/app/reg" element={<AppReg />} />
 
-            <Route path="/app/dash" element={<DashboardPage/>}>
-              <Route index path="/app/dash" element={<UserDashboard/>}/>
-              <Route path="/app/dash/profile" element={<ProfilePage/>}/>
-              <Route path="/app/dash/products" element={<ProductPage/>}/>
-              <Route path="/app/dash/messages" element={<MessagePage/>}/>
-              <Route path="/app/dash/sales" element={<SalesPage/>}/>
-              <Route path="/app/dash/settings" element={<SettingsPage/>}/>
+            <Route path="/app/dash" element={<DashboardPage />}>
+              <Route index path="/app/dash" element={<UserDashboard />} />
+              <Route path="/app/dash/profile" element={<ProfilePage />} />
+              <Route path="/app/dash/products" element={<ProductPage />} />
+              <Route path="/app/dash/messages" element={<MessagePage />} />
+              <Route path="/app/dash/sales" element={<SalesPage />} />
+              <Route path="/app/dash/settings" element={<SettingsPage />} />
             </Route>
           </Route>
 
