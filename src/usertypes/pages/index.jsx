@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './css/index.css';
 import { Badge, Button, Card, Col } from 'react-bootstrap';
-import logo from '../../assets/images/logo.svg';
 import logoFooter from '../../assets/images/logotp.svg';
 import homePic from '../../assets/images/homePicRight.png';
 import pepperDeal from '../../assets/images/pepperDeal.png';
@@ -107,38 +106,6 @@ const Homepage = (props) => {
     })
     return (
         <div className="container-fluid m-0 p-0 w-100" style={{ overflow: 'hidden' }}>
-
-            <div
-                className="w-100 shadow-sm px-4 py-0
-            justify-content-between align-items-center navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">
-                    <img src={logo} width="100" height="80" alt="logo" />
-                </a>
-                <div className="d-flex gap-4 justify-content-end align-items-center">
-                    <ul className="navLinks gap-5 align-items-center p-0 m-0" style={{ listStyle: 'none', }}>
-                        <li ><Link to='/' style={{ color: currentPath == '/' ? '#0E6C4D' : '#00000' }}>Home</Link></li>
-                        <li><Link to='/docs' style={{ color: currentPath == '/docs' ? '#0E6C4D' : '#00000' }}>How it works</Link></li>
-                        <li><Link to='/support' style={{ color: currentPath == '/support' ? '#0E6C4D' : '#00000' }}>Support</Link></li>
-                    </ul>
-                    <form className="search-form gap-2 justify-content-end align-items-center">
-                        <input
-                            className="form-control mr-sm-2"
-                            type="search" placeholder="Search"
-                            aria-label="Search"
-                            style={{ maxWidth: '15em', maxHeight: '5em' }} />
-                        <button
-                            style={{ minHeight: '2em' }}
-                            className="btn btn-outline-success my-2 my-sm-0 py-0" type="submit">Search</button>
-                    </form>
-                    <Link id="loginButton" to='/app/login'>
-                        <Button>Sign in</Button>
-                    </Link>
-                    <div className="toggler text-primary gap-3" style={{ fontSize: '1.3em', cursor: 'pointer' }}>
-                        <i className="bi bi-search"></i>
-                        <i className="bi bi-text-left"></i>
-                    </div>
-                </div>
-            </div>
             <div className="main p-0" style={{ overflowY: 'auto', overflowX: 'hidden' }}>
                 <div className="banner gap-1 w-100">
                     <div className="left-banner w-50">

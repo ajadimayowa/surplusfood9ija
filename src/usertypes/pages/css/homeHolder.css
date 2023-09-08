@@ -1,0 +1,55 @@
+.holder-cont{
+   
+}
+
+.onSearch{
+    display: flex;
+}
+
+.offSearch{
+    display: none;
+}
+
+.sideBar{
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    transform: translateX(0%);
+    transition: transform ease-in-out 0.5s;
+}
+
+.offSideBar {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    transform: translateX(100%);
+    transition: transform ease-in-out 0.5s;
+}
+
+.mobNavLinks li:hover{
+background-color: rgb(28, 106, 87);
+}
+
+.mobNavLinks a{
+    text-decoration: none;
+    color: #fff;
+    }
+
+@media screen and (max-width :768px){
+    .sideBar{
+        position: absolute;
+        width: 100%;
+        min-height: 100vh;
+        transform: translateX(0%);
+        transition: transform ease-in-out 0.5s;
+    }
+    
+    .offSideBar {
+        position: absolute;
+        width: 100%;
+        min-height: 100vh;
+        transform: translateX(100%);
+        transition: transform ease-in-out 0.5s;
+    }
+
+}

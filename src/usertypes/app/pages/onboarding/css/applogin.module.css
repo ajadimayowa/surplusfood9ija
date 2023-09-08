@@ -9,8 +9,7 @@ padding: 0;
     flex-direction: column;
     justify-content: space-between;
     /* background-color: red; */
-    width: 60%;
-    padding: 2%;
+    width: 80%;
 }
 
 .right{
@@ -25,7 +24,7 @@ padding: 0;
     display: flex;
     background-image: url('../../../../../assets/images/webBg.svg');
     background-color: rgb(255, 255, 255);
-    min-height: 95vh;
+    min-height: 70vh;
     min-width: 80%;
     max-width: 80%;
     border-radius: 20px;

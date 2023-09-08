@@ -12,7 +12,7 @@ padding: 0;
     justify-content: space-between;
     /* background-color: red; */
     width: 60%;
-    padding: 2%;
+    padding: 3%;
 }
 
 .right{
@@ -53,6 +53,10 @@ padding: 0;
 
     .right{
         display: none;
+    }
+
+    .left{
+        padding: 0%;
     }
 
 }
