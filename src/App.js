@@ -42,8 +42,8 @@ function App() {
 
           {/* this part is for the app */}
           <Route path="/app" element={<AppHomePage />}>
-            <Route path="/app/home" element={<AppHome />} />
             <Route index path="/app/login" element={<AppLogin />} />
+            <Route path="/app/home" element={<AppHome />} />
             <Route path="/app/reg" element={<AppReg />} />
 
             <Route path="/app/dash" element={<DashboardPage />}>

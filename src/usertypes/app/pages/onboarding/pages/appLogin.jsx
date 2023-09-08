@@ -28,7 +28,7 @@ const AppLogin = () => {
 
 
     return (
-        <div className={`d-flex flex-column justify-content-center align-items-center`}>
+        <div className={`d-flex flex-column justify-content-center w-100 align-items-center`}>
             <div className="d-flex bg-transparent w-100 py-3 px-5">
                 <Link to='/surplus'>
                     <i className="bi bi-house-door text-primary" style={{ fontSize: '1.5em', cursor: 'pointer' }}></i>
