@@ -1,15 +1,28 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import loginCss from '../css/applogin.module.css'
-import { Button, FormControl, InputGroup } from "react-bootstrap";
+import { Button, FormControl, InputGroup, Spinner } from "react-bootstrap";
 import logo from '../../../../../assets/images/logo.svg';
+import {toast} from 'react-toastify';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { logUserIn } from "../../../controllers/auth";
+import {loginUserIn} from "../../../controllers/auth";
+import {useDispatch} from 'react-redux';
+import { setUserInfo } from "../../../store/slices/userSlice";
 
 const AppLogin = () => {
+    const dispatch = useDispatch();
+    const userToken = localStorage.getItem("userToken");
     const navigate = useNavigate();
+    const [loading,setLoading] = useState(false);
     
 
+    console.log(userToken)
+useEffect(()=>{
+    if(userToken!== null){
+        navigate('/app/dash');
+    }
+},[])
     const initialInfo = {
         "email" : '',
         "password":''
@@ -17,10 +30,24 @@ const AppLogin = () => {
     const [userCred, setUserCred] = useState(initialInfo);
 
     const handleLogin = async (e)=>{
+        setLoading(true)
         e.preventDefault();
 
         try {
-            const res = await logUserIn('user/signin',userCred);
+            const res = await loginUserIn(userCred);
+            if(res?.success){
+                toast.success(res.message);
+                setLoading(false);
+                navigate('/app/dash');
+                console.log(res.data);
+                dispatch(setUserInfo(res.data));
+                localStorage.setItem("userToken", res.token);
+                let info = JSON.stringify(res.data);
+                localStorage.setItem("userBio", info);
+            } else{
+                toast.error(res.message);
+                setLoading(false)
+            }
         } catch (error) {
             
         }
@@ -28,8 +55,8 @@ const AppLogin = () => {
 
 
     return (
-        <div className={`d-flex flex-column justify-content-center align-items-center`}>
-            <div className="d-flex bg-transparent w-100 py-3 px-5">
+        <div className={`d-flex flex-column justify-content-center w-100 align-items-center`} style={{overflow:'scroll'}}>
+            <div className="d-flex w-100 py-3 px-5">
                 <Link to='/surplus'>
                     <i className="bi bi-house-door text-primary" style={{ fontSize: '1.5em', cursor: 'pointer' }}></i>
                 </Link>
@@ -70,9 +97,12 @@ const AppLogin = () => {
                                 className="fw-bold"
                                     style={{
                                         color: '#EAFF66',
-                                        maxWidth: '6em',
-                                        minWidth: '6em'
-                                    }}>Sign in</Button>
+                                        maxWidth: '10em',
+                                        minWidth: '10em'
+                                    }}>{
+                                        loading? <Spinner size="sm"/> : 'Sign in'
+                                    }
+                                </Button>
                             </div>
                             <p className="mt-5">Don’t have an account?
                                 <span>{' '}</span>

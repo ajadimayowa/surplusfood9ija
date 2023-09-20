@@ -8,7 +8,7 @@ import './index.css'
 
 const AppHomePage = () => {
     return (
-        <div className="mainContainer m-0 p-0" style={{overflow:'hidden'}}>
+        <div className="mainContainer m-0 p-0 w-100" style={{overflow:'hidden'}}>
         {<Outlet/>}
         </div>
     )

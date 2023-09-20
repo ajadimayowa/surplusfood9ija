@@ -1,5 +1,7 @@
 .holder-cont{
-   
+    height: 100%;
+    max-height: 100vh;
+   overflow-x: hidden;
 }
 
 .onSearch{
@@ -11,17 +13,26 @@
 }
 
 .sideBar{
+    display: flex;
     position: absolute;
-    width: 100%;
+    position: 0px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
-    transform: translateX(0%);
+    width: 100%;
     transition: transform ease-in-out 0.5s;
 }
 
 .offSideBar {
+    display: flex;
     position: absolute;
-    width: 100%;
+    position: 0px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
+    width: 100%;
     transform: translateX(100%);
     transition: transform ease-in-out 0.5s;
 }
@@ -37,18 +48,10 @@ background-color: rgb(28, 106, 87);
 
 @media screen and (max-width :768px){
     .sideBar{
-        position: absolute;
-        width: 100%;
-        min-height: 100vh;
-        transform: translateX(0%);
         transition: transform ease-in-out 0.5s;
     }
     
     .offSideBar {
-        position: absolute;
-        width: 100%;
-        min-height: 100vh;
-        transform: translateX(100%);
         transition: transform ease-in-out 0.5s;
     }
 

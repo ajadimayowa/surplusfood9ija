@@ -3,6 +3,6 @@ import { Outlet, Routes, Route } from "react-router-dom";
 
 export default function ProductPage(){
     return (
-        <h1>This is your product</h1>
+        <h1>This is your product page</h1>
     )
 }

@@ -1,5 +1,5 @@
 .mainContainer{
-    /* overflow: auto; */
-    background-color: #fff;
+    overflow-x: hidden;
     min-height: 100vh;
+    margin: 0px;
 }

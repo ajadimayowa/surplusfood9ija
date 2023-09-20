@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import loginCss from '../css/appReg.module.css'
-import { Button, FormControl, FormSelect, InputGroup } from "react-bootstrap";
+import { Button, FormControl, FormSelect, InputGroup, Spinner } from "react-bootstrap";
 import logo from '../../../../../assets/images/logo.svg';
 import { Link } from "react-router-dom";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import { getAllCountries } from "../../../controllers/services";
 import { toast } from "react-toastify";
 import { signUp } from "../../../controllers/auth";
+import api from "../../../controllers/api";
+import { signUserUp } from "../../../controllers/auth";
+import { useNavigate } from "react-router-dom";
 
 const AppReg = () => {
+    const navigate = useNavigate()
     const [counts, setAllCountries] = useState([{ flag: '', idd: { root: '', suffixes: [] } }]);
+    const [loading,setLoading] = useState(false);
+    
 
     let initialInfo = {
         "full_name": "",
@@ -19,16 +25,13 @@ const AppReg = () => {
         "repeat_password": "",
         "mobile": ""
     }
+
+
     const [userBio, setUserBio] = useState(initialInfo);
 
     const handleDropSelect = (e) => {
         getCountries()
 
-
-    }
-
-    const handleSelect = (val) => {
-        console.log(val)
 
     }
 
@@ -41,23 +44,38 @@ const AppReg = () => {
     }
 
     const handleSubmit = async (e) => {
+        setLoading(true)
+        const body = {
+            "full_name": userBio.full_name,
+            "email": userBio.email,
+            "username": userBio.username,
+            "password": userBio.password,
+            "repeat_password": userBio.repeat_password,
+            "mobile": userBio.mobile
+        }
+
         e.preventDefault();
         if (userBio.pass != userBio.confPass) {
             toast.error('Passwords not equal!')
         } else {
             try {
-                const res = await signUp('user/onboard',userBio);
-                if(res?.data?.success){
-                    let toke = JSON.stringify({'token':res?.data?.id})
-                    localStorage.setItem(toke);
+                const res = await signUserUp(body);
+                console.log(res, 'here now');
+                if (res?.success) {
+                    toast.success('User created Succesfully');
+                    navigate('/app/login',{replace:true});
+                    setLoading(false)
+                } else {
+                    toast.error(`${res?.message}`);
+                    setLoading(false)
                 }
 
             } catch (error) {
                 console.log(error)
-
             }
         }
     }
+
     return (
         <div className={`${loginCss.cont} py-0`} style={{ overflowY: 'auto' }}>
             <div className={`${loginCss.left} w-100`}>
@@ -78,14 +96,14 @@ const AppReg = () => {
                             <div>
                                 <label htmlFor='fname'>Full Name</label>
                                 <FormControl
-                                    onChange={(e) => setUserBio({ ...userBio, full_namee: e.target.value })}
+                                    onChange={(e) => setUserBio({ ...userBio, full_name: e.target.value })}
                                     type="string" id='fname' required style={{ minWidth: '15em' }} />
                             </div>
 
                             <div>
                                 <label>Email address</label>
                                 <FormControl
-                                    onChange={(e) => setUserBio({ ...userBio, mail: e.target.value })}
+                                    onChange={(e) => setUserBio({ ...userBio, email: e.target.value })}
                                     type="email" required style={{ minWidth: '15em' }} />
                             </div>
 
@@ -98,21 +116,21 @@ const AppReg = () => {
 
                             <div>
                                 <label>Your Password</label>
-                                <FormControl onChange={(e) => setUserBio({ ...userBio, pass: e.target.value })}
-                                    type="password" style={{ minWidth: '15em' }} />
+                                <FormControl onChange={(e) => setUserBio({ ...userBio, password: e.target.value })}
+                                    type="text" style={{ minWidth: '15em' }} />
                             </div>
 
                             <div>
                                 <label>Confirm Password</label>
-                                <FormControl type="password"
-                                    onChange={(e) => setUserBio({ ...userBio, confPass: e.target.value })}
+                                <FormControl type="text"
+                                    onChange={(e) => setUserBio({ ...userBio, repeat_password: e.target.value })}
                                     style={{ minWidth: '15em' }} />
                             </div>
 
-                            <div className="d-flex flex-column justify-content-center align-items-center
-                             gap-2 w-100" style={{ minWidth: '15em' }}>
-                                <div className="d-flex gap-2">
-                                    <FormSelect required onChange={(e) => setUserBio({ ...userBio, dial: e.target.value })}
+                            <div className="d-flex flex-column justify-content-start align-items-start
+                            w-100" style={{ minWidth: '15em', maxWidth:'15em' }}>
+                                {/* <div className="d-flex flex-column gap-2"> */}
+                                {/* <FormSelect required onChange={(e) => setUserBio({ ...userBio, dial: e.target.value })}
                                         onClick={(e) => handleDropSelect(e)} style={{ maxWidth: '7em', minWidth: '7em' }}>
                                         <option selected value=''>+1</option>
                                         {
@@ -124,11 +142,13 @@ const AppReg = () => {
                                                 </option>
                                             )
                                         }
-                                    </FormSelect>
-                                    <FormControl
-                                        onChange={(e) => setUserBio({ ...userBio, number: e.target.value })}
-                                        required type='number' maxLength={10} style={{ maxWidth: '8em', minWidth: '8em' }} />
-                                </div>
+                                    </FormSelect> */}
+                                <label>Phone</label>
+                                <FormControl
+                                    className="w-100"
+                                    onChange={(e) => setUserBio({ ...userBio, mobile: e.target.value })}
+                                    required type='number' maxLength={10} style={{ minWidth: '8em' }} />
+                                {/* </div> */}
                             </div>
 
                             <div className="d-flex justify-content-center gap-2 w-100" style={{ minWidth: '20em' }}>
@@ -136,12 +156,17 @@ const AppReg = () => {
                                 <label>I agree to terms and conditions </label>
                             </div>
 
-                            <Button type="submit" className="fw-bold"
-                                style={{
-                                    color: '#EAFF66',
-                                    maxWidth: '6em',
-                                    minWidth: '6em'
-                                }}>Register</Button>
+                            <Button 
+                                type="submit"
+                                className="fw-bold"
+                                    style={{
+                                        color: '#EAFF66',
+                                        maxWidth: '10em',
+                                        minWidth: '10em'
+                                    }}>{
+                                        loading? <Spinner size="sm"/> : 'Register'
+                                    }
+                                </Button>
                         </div>
                         <p className="mt-3">Have an account? <span className="text-primary">
                             <Link to='/app/login' style={{ textDecoration: 'none' }}>
