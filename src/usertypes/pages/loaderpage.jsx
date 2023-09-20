@@ -9,7 +9,7 @@ const LoaderPage = () => {
     const token = localStorage.getItem('userToken');
     const navigate = useNavigate();
 
-    const [timer, setTimer] = useState(3);
+    const [timer, setTimer] = useState(5);
 
     const handleAction = () => {
         console.log(token,'tokewe')
