@@ -15,6 +15,7 @@ const AppLogin = () => {
     const userToken = localStorage.getItem("userToken");
     const navigate = useNavigate();
     const [loading,setLoading] = useState(false);
+    const [hide,setHide] = useState(false)
     
 
     console.log(userToken)
@@ -82,9 +83,17 @@ useEffect(()=>{
                                     </div>
 
                                     <div className="">
+                                        <div className="d-flex justify-content-between">
                                         <label>Your Password</label>
+                                        {!hide?
+                                        <i className="bi bi-eye-fill" onClick={()=>setHide(true)}></i> :
+                                        <i className="bi bi-eye-slash-fill" onClick={()=>setHide(false)}></i>
+                                        }
+                                        </div>
+
                                         <FormControl 
                                         required
+                                        type={hide && 'password'}
                                         onChange={(e)=>setUserCred({...userCred, "password":e.target.value})} 
                                         style={{ minWidth: '15em' }} />
                                     </div>
