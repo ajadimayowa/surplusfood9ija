@@ -12,29 +12,12 @@
     display: none;
 }
 
-.sideBar{
-    display: flex;
-    position: absolute;
-    position: 0px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100%;
-    transition: transform ease-in-out 0.5s;
+.offSideBar {
+    display: none;
 }
 
-.offSideBar {
-    display: flex;
-    position: absolute;
-    position: 0px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100%;
-    transform: translateX(100%);
-    transition: transform ease-in-out 0.5s;
+.sideBar{
+    display: none;
 }
 
 .mobNavLinks li:hover{
@@ -48,10 +31,27 @@ background-color: rgb(28, 106, 87);
 
 @media screen and (max-width :768px){
     .sideBar{
+        display: flex;
+        position: fixed;
+        position: 0px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        width: 100%;
         transition: transform ease-in-out 0.5s;
     }
     
     .offSideBar {
+        display: flex;
+        position: fixed;
+        position: 0px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        width: 100%;
+        transform: translateX(100%);
         transition: transform ease-in-out 0.5s;
     }
 

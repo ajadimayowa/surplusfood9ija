@@ -22,10 +22,10 @@ export default function UserDashboard() {
             </div>
 
             <div className="w-100 d-flex flex-column text-center justify-content-center align-items-center mt-4">
-                <h3 style={{ fontFamily: 'hanoble' }}>Because We are Just Starting Out!!</h3>
+                <h3 style={{ fontFamily: 'hanoble' }}>Because We are Just <br/> Getting Started !!</h3>
                 <p className="px-4"
                 style={{ fontFamily: 'Times' }}
-                >We want you to tell us what you want us <br/> to sell and how to deliver it to you!!</p>
+                >We want you to tell us what you <br/> want us to sell to you and <br/>how you want us to <br/>deliver it to you!!</p>
                 <Link to='https://api.whatsapp.com/message/NSIQY7RHQ2W4C1?autoload=1&app_absent=0'>
                 <Button style={{maxWidth:'10em'}}>Make Suggestions</Button>
                 </Link>
