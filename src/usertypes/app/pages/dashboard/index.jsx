@@ -97,7 +97,7 @@ function DashboardPage() {
                 </div>
                 <div className="mainpage">
                     <div className={`${toggleSide ? 'sideBar' : 'offSideBar'} bg-primary 
-            w-100`} style={{ zIndex: 200 }}>
+            w-100`} style={{ zIndex: 600 }}>
 
                         <ul className="d-flex mobNavLinks flex-column w-100 px-0 gap-2"
                             style={{ listStyle: 'none', textAlign: 'center', color: '#fff', textDecoration: 'none' }}>
