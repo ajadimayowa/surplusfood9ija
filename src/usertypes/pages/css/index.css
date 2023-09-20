@@ -5,7 +5,8 @@
 
 .banner {
     min-height: 70vh;
-    background-image: url('../../../assets/images/webBg.svg');
+    background-image: url('../../../assets/images/webBg.png');
+    background-color: #007660;
     background-size: cover;
     background-attachment: fixed;
     display: flex;
