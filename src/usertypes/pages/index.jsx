@@ -15,6 +15,7 @@ import { getWeather} from "../app/controllers/services";
 
 const Homepage = (props) => {
     const currentPath = useLocation().pathname;
+    const token = localStorage.getItem('userToken');
 
     console.log(currentPath);
 
@@ -122,7 +123,9 @@ const Homepage = (props) => {
 
                         {/* buttons */}
 
-                        <div className="gap-3" id="buttonsContainer">
+                        <div className="gap-3" id="buttonsContainer">{
+                            token == null &&
+                            <>
                             <Link className="d-flex justify-content-center" to='/app/reg' style={{ textDecoration: 'none' }}>
                                 <Button className="mt-3 bg-light py-3 text-primary"
                                     style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
@@ -136,7 +139,8 @@ const Homepage = (props) => {
                                 >Login
                                 </Button>
                             </Link>
-                        </div>
+                            </>
+                        }</div>
 
                     </div>
 

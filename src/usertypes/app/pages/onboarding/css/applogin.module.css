@@ -1,4 +1,5 @@
 .cont {
+    background-color: pink;
 background: url('../../../../../assets/images/homeBackground.png');
 min-height: 100vh;
 padding: 0;
@@ -38,6 +39,7 @@ padding: 0;
 @media screen and (max-width :768px){
     .cont{
         display: flex;
+        background-color: pink;
         background: url('../../../../../assets/images/homeBackground.png');
         justify-content: center;
         align-items: center;

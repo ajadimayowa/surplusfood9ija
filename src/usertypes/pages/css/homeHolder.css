@@ -1,6 +1,4 @@
 .holder-cont{
-    
-    background-color: red;
     height: 100%;
     max-height: 100vh;
    overflow-x: hidden;
@@ -16,6 +14,8 @@
 
 .sideBar{
     display: flex;
+    position: absolute;
+    position: 0px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -25,9 +25,15 @@
 }
 
 .offSideBar {
-   transform: translateX(100%);
+    display: flex;
+    position: absolute;
+    position: 0px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
     width: 100%;
+    transform: translateX(100%);
     transition: transform ease-in-out 0.5s;
 }
 

@@ -5,12 +5,16 @@
     overflow: auto;
 }
 
+.sidenav{
+    display: flex;
+}
+
 .sidenavs li{
     cursor: pointer;
     }
 
 .sidenavs{
- height: 70%;
+height: 70%;
 }
 
 .logo{
@@ -22,12 +26,21 @@
 }
 
 .sidenavs li:hover {
-background-color: white;
+background-color: rgb(20, 141, 18);
+}
+
+.logout {
+    cursor: pointer;
+}
+
+.logout:hover {
+    background-color: #0b7d37;
 }
 
 .topnav{
-    background-color: #fff;
+    background-color: #ffffff;
     min-height: 10vh;
+    box-shadow: inset 1px 0px   3px rgb(92, 92, 92, 0.3);
 }  
 
 .mainpage {
@@ -35,10 +48,22 @@ background-color: white;
     overflow-x: hidden;
     min-height: 90vh;
     width: 100%;
-    background-color: pink;
+}
+.bi-text-left{
+        display: none;
 }
 
 .sidenav{
     background-color: rgb(0, 128, 23);
     height: 100vh;
+}
+
+@media only screen and (max-width: 600px) {
+    .sidenav{
+        display: none;
+    }
+    .bi-text-left{
+        display: flex;
+}
+    
 }

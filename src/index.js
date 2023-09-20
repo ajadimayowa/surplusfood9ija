@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {ToastContainer, toast} from 'react-toastify';
+import { store } from './usertypes/app/store/store';
+import {Provider} from 'react-redux'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+   <Provider store={store}>
     <App />
+    </Provider>
     <ToastContainer limit={1}/>
   </React.StrictMode>
 );

@@ -33,7 +33,7 @@ function App() {
           <Route path="/surplus" element={<HomeHolder/>}>
             <Route index element={<Homepage />}/>
             <Route path="about-us" element={<AboutUs/>} />
-            <Route path="/surplus/how-it-works" element={<HowItWorks/>} />
+            <Route path="how-it-works" element={<HowItWorks/>} />
             <Route path="contact-us" element={<ContactUs/>} />
             <Route path="t&c" element={<TermsandCon/>} />
             <Route path="support" element={<Support />} />
@@ -46,7 +46,7 @@ function App() {
             <Route path="/app/home" element={<AppHome />} />
             <Route path="/app/reg" element={<AppReg />} />
 
-            <Route path="/app/dash" element={<DashboardPage />}>
+            <Route path="/app/dash" element={<DashboardPage/>}>
               <Route index path="/app/dash" element={<UserDashboard />} />
               <Route path="/app/dash/profile" element={<ProfilePage />} />
               <Route path="/app/dash/products" element={<ProductPage />} />

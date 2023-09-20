@@ -6,17 +6,18 @@ import { toast } from "react-toastify";
 
 
 const LoaderPage = () => {
-    const token = localStorage.getItem('userToken') || '';
+    const token = localStorage.getItem('userToken');
     const navigate = useNavigate();
 
     const [timer, setTimer] = useState(3);
 
     const handleAction = () => {
-        if (token == '') {
+        console.log(token,'tokewe')
+        if (token == null) {
             navigate('/surplus', {replace :true});
             return
         } else {
-            navigate('/app/login', {replace:true})
+            navigate('/app/dash', {replace:true})
         }
 
     }
