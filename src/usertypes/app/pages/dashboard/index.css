@@ -40,7 +40,7 @@ background-color: rgb(20, 141, 18);
 .topnav{
     background-color: #ffffff;
     min-height: 10vh;
-    box-shadow: inset 1px 0px   3px rgb(92, 92, 92, 0.3);
+    box-shadow: inset 1px 0px   2px rgb(92, 92, 92, 0.3);
 }  
 
 .mainpage {
@@ -58,6 +58,13 @@ background-color: rgb(20, 141, 18);
     height: 100vh;
 }
 
+.sideBarDash{
+    display: none;
+}
+.offSideBarDash{
+    display: none;
+}
+
 @media only screen and (max-width: 600px) {
     .sidenav{
         display: none;
@@ -65,5 +72,26 @@ background-color: rgb(20, 141, 18);
     .bi-text-left{
         display: flex;
 }
-    
+.sideBarDash{
+
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    transition: transform ease-in-out 0.5s;
+    transform: translateX(0%);
+
+}
+.offSideBarDash{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    transform: translateX(100%);
+    transition: transform ease-in-out 0.5s;
+}
 }

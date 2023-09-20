@@ -96,8 +96,8 @@ function DashboardPage() {
                     <i className="bi bi-text-left text-primary" onClick={() => setToggleSide(!toggleSide)} style={{ fontSize: '1.5em' }}></i>
                 </div>
                 <div className="mainpage">
-                    <div className={`${toggleSide ? 'sideBar' : 'offSideBar'} bg-primary 
-            w-100`} style={{ zIndex: 600 }}>
+                <div className={`${toggleSide ? 'sideBarDash' : 'offSideBarDash'} 
+            w-100 bg-primary`} style={{ zIndex: 600 }}>
 
                         <ul className="d-flex mobNavLinks flex-column w-100 px-0 gap-2"
                             style={{ listStyle: 'none', textAlign: 'center', color: '#fff', textDecoration: 'none' }}>
