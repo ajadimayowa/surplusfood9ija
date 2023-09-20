@@ -29,7 +29,6 @@ export default function UserDashboard() {
                 <Link to='https://api.whatsapp.com/message/NSIQY7RHQ2W4C1?autoload=1&app_absent=0'>
                 <Button style={{maxWidth:'10em'}}>Make Suggestions</Button>
                 </Link>
-                
             </div>
 
         </div>

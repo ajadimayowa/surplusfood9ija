@@ -26,7 +26,7 @@ height: 70%;
 }
 
 .sidenavs li:hover {
-background-color: rgb(20, 141, 18);
+background-color: #046956;
 }
 
 .logout {
@@ -54,7 +54,7 @@ background-color: rgb(20, 141, 18);
 }
 
 .sidenav{
-    background-color: rgb(0, 128, 23);
+    background-color: #007660;
     height: 100vh;
 }
 
