@@ -195,7 +195,7 @@ const Homepage = (props) => {
 
                     <div className="right-banner">
                         <div className="pt-5">
-                            <img className="bg-transparent rounded rounded-4" src={'https://lh3.googleusercontent.com/pw/AIL4fc_jS12ApRXA82637Q5gwmMd1Apw16mXZXMDmI7KLfGzXBMnvJX2L62hrxSyu0NNU7DnudbE8Y_qObX-vDLCQY-sSHlF--0ia51vGa_5tJesMujef_oUB1Z95_WMKpcrvNiy0QvQO4v7hMYCS4LMLHl1qJ4SH5Kf1HaqObdhngZSIKkqC78yRKAub_p6I1gfV3hJ9ErlvUEOCJkRSo0UygRvrIoe_x5C-4-mt6LQUNltOgPq6bGuQJFGcyAmJw6XoQk2V9RXPlUvmM7UUITu9QmRA4Q6hek-dB3Gb8e86HUbfgc4P_piooFMQ58oFYe2-3VuLaMuq4Fs7YQZ6G2jOMJ0bjMiNMOi0b1qSdNmemwP35vKNsXj_gOQpr0uhInUvDlBA9i82zFn9PmHlz2JzJL3RQp8s1eZVGqJaNA7TD3aOeT080sXDFiMlySklphP_ucQn30gsA0qKdKN54qNmE5K_KXinaEE1Pq_ElmaeXqEBQhpjt0nDRbl0ytXdFNrERwBDFOoJhwpUgsd2f2mmAxXlRDp3HsxxdnYPurp0za6n2SxGQpzaRevcxogJil9ZAaX2osH-evbtI_hUmKuSAhPyAf512wWGZzwL2TEJF5hzLceaEwDBd-472GhqfbEbE5FRG05J4umHF5DsYG__h39Vc5jOrVKr5HbpwfrB_2C7EyqZkV0qXWE5-_yiVC-5HfFXWrfU0EaAWL2JSD5Lpt5jw5dvJcARv54G9CiFaYlaNmqEx77ZcUoOEPoz-qdLX332kbpHUYoryNfXx_f3p0cxMYsB6u328sSnLcXHbN6C_9ED3NXgeKgtkq_1Qfc4LtcdnydCBWOVG23cGRCF41bdCTTmMiTGVWChX-xAlVyDQqa04hBohwn37PN8y7Te8m1-7ZN--zSdXAiMbH4HEIK83Mx-xHbsMJ5kRKKL6MNvGKd1NwWyY4IBRwT68vvpSKMQfFsNUvBujUjz_xKSFSgQWCVw7dMHkLaMb8ZlR8RVvTP8wGPA31-xW8A9WThkQPzDPZMbClt3FP6xCst6A_PtbOVkf0EK8xX=w1220-h1216-s-no?authuser=3'}
+                            <img className="bg-transparent rounded rounded-4" src={homePic}
                                 width="350px" height="360px" alt="happy buyer" />
                         </div>
                     </div>
