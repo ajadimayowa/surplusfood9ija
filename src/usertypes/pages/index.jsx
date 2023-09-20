@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './css/index.css';
-import { Badge, Button, Card, Col } from 'react-bootstrap';
+import { Badge, Button, Card, Col, Modal } from 'react-bootstrap';
 import logoFooter from '../../assets/images/logotp.svg';
 import homePic from '../../assets/images/homePicRight.png';
 import pepperDeal from '../../assets/images/pepperDeal.png';
@@ -11,11 +11,12 @@ import storeIcon from '../../assets/icons/storeIcon.svg';
 import { footerContents } from "../../assets/constants";
 import CollapsableData from "../../components/collapsibleData";
 import { useLocation } from "react-router-dom";
-import { getWeather} from "../app/controllers/services";
+import { getWeather } from "../app/controllers/services";
 
 const Homepage = (props) => {
     const currentPath = useLocation().pathname;
     const token = localStorage.getItem('userToken');
+    const [req, setReq] = useState(false);
 
     console.log(currentPath);
 
@@ -99,14 +100,44 @@ const Homepage = (props) => {
 
     ]
     const fetch = async () => {
-        
+
     }
 
     useEffect(() => {
         fetch()
     })
     return (
+
         <div className="container-fluid m-0 p-0 w-100" style={{ overflow: 'hidden' }}>
+
+            <Modal centered show={req}>
+                <Modal.Header >
+                    <h5>
+                        What would you like us to help you with?
+                    </h5>
+                    <i className="bi bi-x-circle" style={{ cursor: 'pointer' }} onClick={() => setReq(false)}></i>
+                </Modal.Header>
+                <Modal.Body className="p-2">
+                    <div className="d-flex justify-content-center gap-5" style={{ fontSize: '0.8em' }}>
+                        <div className="d-flex justify-content-center flex-column text-center" style={{ cursor: 'pointer' }}>
+                            <p className="p-0 m-0">Do Grocery Shopping</p>
+                            <i className="bi bi-basket2-fill text-primary" style={{ fontSize: '2.5em' }}></i>
+                        </div>
+
+                        <div className="d-flex justify-content-center flex-column text-center" style={{ cursor: 'pointer' }}>
+                            <p className="p-0 m-0">Request Dispatch Rider</p>
+                            <i className="bi bi-bicycle text-primary" style={{ fontSize: '2.5em' }}></i>
+                        </div>
+
+                        <div className="d-flex justify-content-center flex-column text-center" style={{ cursor: 'pointer' }}>
+                            <p className="p-0 m-0">Request For A Mover</p>
+                            <i className="bi bi-truck text-primary fw-bold" style={{ fontSize: '2.5em' }}></i>
+                        </div>
+                    </div>
+                </Modal.Body>
+
+            </Modal>
+
             <div className="main p-0" style={{ overflowY: 'auto', overflowX: 'hidden' }}>
                 <div className="banner gap-1 w-100">
                     <div className="left-banner w-50">
@@ -124,21 +155,39 @@ const Homepage = (props) => {
                         {/* buttons */}
 
                         <div className="gap-3" id="buttonsContainer">{
-                            token == null &&
-                            <>
-                            <Link className="d-flex justify-content-center" to='/app/reg' style={{ textDecoration: 'none' }}>
-                                <Button className="mt-3 bg-light py-3 text-primary"
-                                    style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
-                                >Get Started
-                                </Button>
-                            </Link>
 
-                            <Link className="d-flex justify-content-center" to='/app/login' style={{ textDecoration: 'none' }}>
-                                <Button className="mt-3 bg-primary py-3 text-light border-light"
-                                    style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
-                                >Login
-                                </Button>
-                            </Link>
+                            <>
+                                {
+                                    token == null ?
+                                        <Link className="d-flex justify-content-center" to='/app/reg' style={{ textDecoration: 'none' }}>
+                                            <Button className="mt-3 bg-light py-3 text-primary"
+                                                style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
+                                            >Get Started
+                                            </Button>
+                                        </Link> :
+
+                                        <Button onClick={() => setReq(true)} className="mt-3 bg-light py-3 text-primary"
+                                            style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
+                                        >Request Service
+                                        </Button>
+
+                                }
+
+                                {
+                                    token == null ?
+                                        <Link className="d-flex justify-content-center" to='/app/login' style={{ textDecoration: 'none' }}>
+                                            <Button className="mt-3 bg-primary py-3 text-light border-light"
+                                                style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
+                                            >Login
+                                            </Button>
+                                        </Link> :
+                                        
+                                        <Button className="mt-3 bg-primary py-3 text-light border-light"
+                                            style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
+                                        >Feed a Child
+                                        </Button>
+                                        
+                                }
                             </>
                         }</div>
 
@@ -146,8 +195,8 @@ const Homepage = (props) => {
 
                     <div className="right-banner">
                         <div className="pt-5">
-                            <img className="bg-transparent rounded rounded-4" src={'https://lh3.googleusercontent.com/pw/AIL4fc_jS12ApRXA82637Q5gwmMd1Apw16mXZXMDmI7KLfGzXBMnvJX2L62hrxSyu0NNU7DnudbE8Y_qObX-vDLCQY-sSHlF--0ia51vGa_5tJesMujef_oUB1Z95_WMKpcrvNiy0QvQO4v7hMYCS4LMLHl1qJ4SH5Kf1HaqObdhngZSIKkqC78yRKAub_p6I1gfV3hJ9ErlvUEOCJkRSo0UygRvrIoe_x5C-4-mt6LQUNltOgPq6bGuQJFGcyAmJw6XoQk2V9RXPlUvmM7UUITu9QmRA4Q6hek-dB3Gb8e86HUbfgc4P_piooFMQ58oFYe2-3VuLaMuq4Fs7YQZ6G2jOMJ0bjMiNMOi0b1qSdNmemwP35vKNsXj_gOQpr0uhInUvDlBA9i82zFn9PmHlz2JzJL3RQp8s1eZVGqJaNA7TD3aOeT080sXDFiMlySklphP_ucQn30gsA0qKdKN54qNmE5K_KXinaEE1Pq_ElmaeXqEBQhpjt0nDRbl0ytXdFNrERwBDFOoJhwpUgsd2f2mmAxXlRDp3HsxxdnYPurp0za6n2SxGQpzaRevcxogJil9ZAaX2osH-evbtI_hUmKuSAhPyAf512wWGZzwL2TEJF5hzLceaEwDBd-472GhqfbEbE5FRG05J4umHF5DsYG__h39Vc5jOrVKr5HbpwfrB_2C7EyqZkV0qXWE5-_yiVC-5HfFXWrfU0EaAWL2JSD5Lpt5jw5dvJcARv54G9CiFaYlaNmqEx77ZcUoOEPoz-qdLX332kbpHUYoryNfXx_f3p0cxMYsB6u328sSnLcXHbN6C_9ED3NXgeKgtkq_1Qfc4LtcdnydCBWOVG23cGRCF41bdCTTmMiTGVWChX-xAlVyDQqa04hBohwn37PN8y7Te8m1-7ZN--zSdXAiMbH4HEIK83Mx-xHbsMJ5kRKKL6MNvGKd1NwWyY4IBRwT68vvpSKMQfFsNUvBujUjz_xKSFSgQWCVw7dMHkLaMb8ZlR8RVvTP8wGPA31-xW8A9WThkQPzDPZMbClt3FP6xCst6A_PtbOVkf0EK8xX=w1220-h1216-s-no?authuser=3'} 
-                            width="350px" height="360px" alt="happy buyer" />
+                            <img className="bg-transparent rounded rounded-4" src={'https://lh3.googleusercontent.com/pw/AIL4fc_jS12ApRXA82637Q5gwmMd1Apw16mXZXMDmI7KLfGzXBMnvJX2L62hrxSyu0NNU7DnudbE8Y_qObX-vDLCQY-sSHlF--0ia51vGa_5tJesMujef_oUB1Z95_WMKpcrvNiy0QvQO4v7hMYCS4LMLHl1qJ4SH5Kf1HaqObdhngZSIKkqC78yRKAub_p6I1gfV3hJ9ErlvUEOCJkRSo0UygRvrIoe_x5C-4-mt6LQUNltOgPq6bGuQJFGcyAmJw6XoQk2V9RXPlUvmM7UUITu9QmRA4Q6hek-dB3Gb8e86HUbfgc4P_piooFMQ58oFYe2-3VuLaMuq4Fs7YQZ6G2jOMJ0bjMiNMOi0b1qSdNmemwP35vKNsXj_gOQpr0uhInUvDlBA9i82zFn9PmHlz2JzJL3RQp8s1eZVGqJaNA7TD3aOeT080sXDFiMlySklphP_ucQn30gsA0qKdKN54qNmE5K_KXinaEE1Pq_ElmaeXqEBQhpjt0nDRbl0ytXdFNrERwBDFOoJhwpUgsd2f2mmAxXlRDp3HsxxdnYPurp0za6n2SxGQpzaRevcxogJil9ZAaX2osH-evbtI_hUmKuSAhPyAf512wWGZzwL2TEJF5hzLceaEwDBd-472GhqfbEbE5FRG05J4umHF5DsYG__h39Vc5jOrVKr5HbpwfrB_2C7EyqZkV0qXWE5-_yiVC-5HfFXWrfU0EaAWL2JSD5Lpt5jw5dvJcARv54G9CiFaYlaNmqEx77ZcUoOEPoz-qdLX332kbpHUYoryNfXx_f3p0cxMYsB6u328sSnLcXHbN6C_9ED3NXgeKgtkq_1Qfc4LtcdnydCBWOVG23cGRCF41bdCTTmMiTGVWChX-xAlVyDQqa04hBohwn37PN8y7Te8m1-7ZN--zSdXAiMbH4HEIK83Mx-xHbsMJ5kRKKL6MNvGKd1NwWyY4IBRwT68vvpSKMQfFsNUvBujUjz_xKSFSgQWCVw7dMHkLaMb8ZlR8RVvTP8wGPA31-xW8A9WThkQPzDPZMbClt3FP6xCst6A_PtbOVkf0EK8xX=w1220-h1216-s-no?authuser=3'}
+                                width="350px" height="360px" alt="happy buyer" />
                         </div>
                     </div>
                 </div>
@@ -157,7 +206,7 @@ const Homepage = (props) => {
                 "
                     style={{ backgroundColor: '#F4F4F4' }}>
                     {
-                        serviceCaptions.map((captions,index) => (
+                        serviceCaptions.map((captions, index) => (
                             <div key={index}>
                                 <div className="p-2 text-center"
                                     style={{ backgroundColor: captions.bgColor }}><img src={captions.icon} /></div>
@@ -180,7 +229,7 @@ const Homepage = (props) => {
                     <h2 className="text-center" style={{ fontWeight: '700' }}>With Customized Shopping Experience</h2>
                 </div>
 
-                <div className="sectAdGoods mt-5 w-100 px-4
+                <div id="market" className="sectAdGoods mt-5 w-100 px-4
                 justify-content-center gap-3 align-items-center
                 "
                     style={{ backgroundColor: '#fff' }}>
@@ -198,10 +247,10 @@ const Homepage = (props) => {
                                     </div>
                                 </div>
                                 <div className="d-flex flex-column p-3 align-items-center w-100 rounded-bottom-5 "
-                                id={index == 0 ? "grains" :index == 1 ? "tubs":index == 2 ? "flours" :index == 3 ? "bevs":'newCat'}>
+                                    id={index == 0 ? "grains" : index == 1 ? "tubs" : index == 2 ? "flours" : index == 3 ? "bevs" : 'newCat'}>
                                     <h4>{prod.name}</h4>
                                     <p className="text-center">{prod.desc}</p>
-                                    <Button style={{backgroundColor:'#FF7C02'}}>Shop now</Button>
+                                    <Button style={{ backgroundColor: '#FF7C02' }}>Shop now</Button>
                                 </div>
                             </div>
                         ))
@@ -284,9 +333,9 @@ const Homepage = (props) => {
                         </p>
                         <div className="d-flex align-items-center gap-2 mb-2">
                             <Link to='/app/reg'>
-                            <Button>Get started</Button>
+                                <Button>Get started</Button>
                             </Link>
-                            
+
                             <p className="p-0 m-0">Contact Support</p>
                         </div>
 
@@ -298,9 +347,9 @@ const Homepage = (props) => {
                 <div className="footerMobile w-100">
                     {
                         footerContents.map((footer, index) => (
-                        <div key={index}>
-<CollapsableData data={footer} />
-                        </div>
+                            <div key={index}>
+                                <CollapsableData data={footer} />
+                            </div>
                         ))
                     }
                 </div>
@@ -355,6 +404,8 @@ const Homepage = (props) => {
                 <Link to='https://www.instagram.com/surplusfood9ja/'><i className="bi bi-instagram"></i></Link>
 
             </div>
+
+
 
         </div>
     )
