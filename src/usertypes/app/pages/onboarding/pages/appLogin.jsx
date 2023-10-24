@@ -56,14 +56,14 @@ useEffect(()=>{
 
 
     return (
-        <div className={`d-flex flex-column justify-content-center w-100 align-items-center`} style={{overflow:'scroll'}}>
+        <div className={`d-flex flex-column justify-content-center w-100 align-items-center`}>
             <div className="d-flex w-100 py-3 px-5">
                 <Link to='/surplus'>
                     <i className="bi bi-house-door text-primary" style={{ fontSize: '1.5em', cursor: 'pointer' }}></i>
                 </Link>
             </div>
             <div className={`${loginCss.cont} d-flex w-100`}>
-                <div className={`${loginCss.left}`}>
+                <div className={`${loginCss.left} px-2 py-3`} style={{overflow:'scroll', height:'80vh'}}>
                     <div>
                         <h3 className={`${loginCss.header} px-4 text-primary fw-bold`}>Sign in</h3>
                     </div>
@@ -126,6 +126,8 @@ useEffect(()=>{
                         <p>Privacy Policy</p>
                         <p>Terms and conditions</p>
                     </div>
+
+                    
                 </div>
                 <div className={`${loginCss.right}`}>
                     <div className={`${loginCss.rightCont}`}>

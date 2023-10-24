@@ -46,7 +46,7 @@ const LoaderPage = () => {
 
     return (
         <div className="container-fluid w-100 min-vh-100 d-flex justify-content-center align-items-center">
-            <img src={sfoodloader} alt="loading" height={'200em'} />
+            <img src={sfoodloader} alt="loading" height={'300em'} />
         </div>
     )
 }

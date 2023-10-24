@@ -13,3 +13,9 @@ $secondary : #F6CB1B;
     font-family: hanoble;
     src:url('./assets//fonts/Hanoble.ttf');
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

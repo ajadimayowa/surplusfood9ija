@@ -78,7 +78,7 @@ const AppReg = () => {
 
     return (
         <div className={`${loginCss.cont} py-0`} style={{ overflowY: 'auto' }}>
-            <div className={`${loginCss.left} w-100`}>
+            <div className={`${loginCss.left} w-100`}  style={{height:'100vh', overflow:'scroll'}}>
                 <div className="px-3">
                     <h3 className={`${loginCss.header}  text-primary fw-bold`}>Create account</h3>
                     <Link to='/surplus'>
@@ -86,7 +86,7 @@ const AppReg = () => {
                     </Link>
 
                 </div>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex">
                     <form ng-form='reg' autoComplete="off" onSubmit={(e) => handleSubmit(e)} className="d-flex w-100 justify-content-center align-items-center flex-column">
                         <div>
                             <img height='30em' src={logo} />
@@ -127,22 +127,17 @@ const AppReg = () => {
                                     style={{ minWidth: '15em' }} />
                             </div>
 
+                            <ul className="text-danger" style={{fontSize:'0.8em'}}>
+                                    <li>Must contain one integer</li>
+                                    <li>One special character</li>
+                                    <li>Three lowercase</li>
+                                    <li>One uppercase</li>
+                                    <li>Length must be more than 8.</li>
+                                </ul>
+
                             <div className="d-flex flex-column justify-content-start align-items-start
                             w-100" style={{ minWidth: '15em', maxWidth:'15em' }}>
-                                {/* <div className="d-flex flex-column gap-2"> */}
-                                {/* <FormSelect required onChange={(e) => setUserBio({ ...userBio, dial: e.target.value })}
-                                        onClick={(e) => handleDropSelect(e)} style={{ maxWidth: '7em', minWidth: '7em' }}>
-                                        <option selected value=''>+1</option>
-                                        {
-                                            counts.map((count, index) =>
-                                                <option
-                                                    onChange={(e) => setUserBio({ ...userBio, dial: e.target.value })}
-                                                    key={index} value={`${count.idd.root}${count.idd.suffixes}`} className="d-flex w-100">
-                                                    {`${count.flag} ${count.idd.root}${count.idd.suffixes}`}
-                                                </option>
-                                            )
-                                        }
-                                    </FormSelect> */}
+                               
                                 <label>Phone</label>
                                 <FormControl
                                     className="w-100"
@@ -150,6 +145,7 @@ const AppReg = () => {
                                     required type='number' maxLength={10} style={{ minWidth: '8em' }} />
                                 {/* </div> */}
                             </div>
+                            
 
                             <div className="d-flex justify-content-center gap-2 w-100" style={{ minWidth: '20em' }}>
                                 <FormCheckInput required onChange={(e) => setUserBio({ ...userBio, checked: e.target.value })} />
