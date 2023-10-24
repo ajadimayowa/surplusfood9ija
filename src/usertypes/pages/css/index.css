@@ -1,0 +1,256 @@
+.main{
+    height: 80vh;
+    padding: 2%;
+}
+
+.banner {
+    min-height: 70vh;
+    background-image: url('../../../assets/images/webBg.png');
+    background-color: #007660;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-banner {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    /* background-color: pink; */
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+}
+
+.left-banner #buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    /* background-color: yellow; */
+    width: 100%;
+    justify-content: start;
+    
+}
+
+.right-banner {
+    display: flex;
+    max-height: 100vh;
+    /* background-color: pink; */
+    align-items: center;
+    justify-content: center;
+}
+
+.right-banner div {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-banner #introText {
+   font-weight: 600;
+   font-size: 3em;
+}
+
+.deal-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-inline: 2%;
+    padding: 3%;
+    background-color: #EFFBF9;
+}
+
+.left-deal-banner div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+.right-deal-banner #dealIntro{
+    font-size: 3em;
+    font-weight: 600;
+}
+
+
+.footerRow{
+      display: flex;  
+      justify-content: start;
+}
+
+.search-form{
+    display: flex;
+}
+
+.toggler {
+    display: none;
+}
+.navLinks{
+    display: flex;
+}
+
+.navLinks li a{
+    text-decoration: none;
+}
+
+.navLinks li a{
+   color: black;
+}
+
+.navLinks li a:hover{
+    color: rgb(121, 121, 121);
+    text-decoration: none;
+}
+
+.active {
+    color: #0E6C4D;
+}
+
+
+
+.phrase{
+    font-size: 5em;
+    background-color: red;
+}
+
+.cap{
+ text-align: left;
+}
+
+.sectTwo{
+    min-height: 30vh;
+}
+
+.sectAdGoods{
+    display: flex;
+    flex-direction: row;
+}
+
+.testimonials{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.footerMobile{
+    display: none;
+}
+
+#grains{
+    background-image: linear-gradient(to right,  #0E6C4D, rgb(0,0,0,0.8));
+    color: #fff;
+}
+
+#tubs{
+    background-image: linear-gradient(to right,  #8E8635, #6F6717);
+    color: #fff;
+}
+
+#flours{
+    background-image: linear-gradient(to right,  #8DA900, #607700);
+    color: #fff;
+}
+
+#bevs{
+    background-image: linear-gradient(to right,  #007660, #02493C);
+    color: #fff;
+}
+
+@media screen and (max-width :768px){
+    .navLinks{
+        display: none;
+        background-color: pink;
+    }
+
+    .toggler {
+        display: flex;
+    }
+    #loginButton {
+        display: none;
+    }
+    .phrase{
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .search-form{
+        display: none;
+        background-color: red;
+    }
+    .banner {
+        flex-direction: column-reverse;
+    }
+
+    .left-banner {
+       min-width: 100%;
+       padding-inline: 10%;
+        
+     }
+    .left-banner #introText {
+       text-align: center;
+       width: 100%;
+       color: #fff;
+    }
+
+    .left-banner #introDesc {
+        text-align: center;
+        width: 100%;
+     }
+
+     .left-banner #buttonsContainer {
+       justify-content: center;
+       gap: 15px;
+     }
+
+     .deal-section{
+        flex-direction: column;
+    }
+
+    .deal-section .right-deal-banner{
+      text-align: center;
+      width: 100%;
+    }
+
+    .timerContainer{
+        width: 100%;
+    }
+
+    .sectTwo{
+        display: flex;
+        flex-direction: column;
+        padding: 5%;
+    }
+
+    .sectAdGoods{
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        background-color: pink;
+    }
+
+    .testimonials{
+        flex-direction: column;
+    }
+
+    .footerMobile{
+        display: flex;
+        width: 100%;
+    }
+
+    .footerRow{
+        display: none; 
+        flex-direction: column; 
+        justify-content: center;
+  }
+
+  .footerMobile{
+    display: block;
+    width: 100%;
+  }
+
+    
+}

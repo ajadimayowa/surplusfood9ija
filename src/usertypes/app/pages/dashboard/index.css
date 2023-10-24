@@ -1,0 +1,97 @@
+.dashboard-container {
+    display: flex;
+    overflow-y: scroll;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.sidenav{
+    display: flex;
+}
+
+.sidenavs li{
+    cursor: pointer;
+    }
+
+.sidenavs{
+height: 70%;
+}
+
+.logo{
+    height: 10%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 10%;
+}
+
+.sidenavs li:hover {
+background-color: #046956;
+}
+
+.logout {
+    cursor: pointer;
+}
+
+.logout:hover {
+    background-color: #0b7d37;
+}
+
+.topnav{
+    background-color: #ffffff;
+    min-height: 10vh;
+    box-shadow: inset 1px 0px   2px rgb(92, 92, 92, 0.3);
+}  
+
+.mainpage {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    min-height: 90vh;
+    width: 100%;
+}
+.bi-text-left{
+        display: none;
+}
+
+.sidenav{
+    background-color: #007660;
+    height: 100vh;
+}
+
+.sideBarDash{
+    display: none;
+}
+.offSideBarDash{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .sidenav{
+        display: none;
+    }
+    .bi-text-left{
+        display: flex;
+}
+.sideBarDash{
+
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    min-height: 100vh;
+    transition: transform ease-in-out 0.5s;
+    transform: translateX(0%);
+
+}
+.offSideBarDash{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    min-height: 100vh;
+    transform: translateX(100%);
+    transition: transform ease-in-out 0.5s;
+}
+}
