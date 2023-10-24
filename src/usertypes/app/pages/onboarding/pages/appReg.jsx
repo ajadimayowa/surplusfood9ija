@@ -127,7 +127,7 @@ const AppReg = () => {
                                     style={{ minWidth: '15em' }} />
                             </div>
 
-                            <ul className="text-danger bg-info w-100" style={{fontSize:'0.8em',minWidth: '18em'}}>
+                            <ul className="text-danger w-100" style={{fontSize:'0.8em',minWidth: '18em'}}>
                                     <li className="w-100">Must contain one integer</li>
                                     <li>One special character</li>
                                     <li>Three lowercase</li>
