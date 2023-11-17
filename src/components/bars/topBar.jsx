@@ -41,9 +41,9 @@ const TopBar = () => {
                     <li><Link to='about-us' style={{ color: currentPath == '/surplus/about-us' && '#0E6C4D' }}>About us</Link></li>
                     <li><Link to='contact-us' style={{ color: currentPath == '/surplus/contact-us' && '#0E6C4D' }}>Contact us</Link></li>
                 </ul>
-               { token? <i 
+               { token? <i id="desktopProfileIcon"
                onClick={()=>navigate('/app/dash')}
-               className="bi bi-person-circle text-primary" style={{fontSize:'1.4em', cursor:'pointer'}}></i> :
+               className={`${Style.desktopProfileIcon} bi bi-person-circle text-primary`}style={{fontSize:'1.4em', cursor:'pointer'}}></i> :
                <Link id="loginButton" onClick={()=>setShowLoginModal(true)}>
                     <Button>Sign in</Button>
                 </Link>}
@@ -61,7 +61,8 @@ const TopBar = () => {
                     <div className="d-flex gap-2 align-items-center" onClick={()=>handleLoginCheck()}>
                         <p className="p-0 m-0">Login</p>
                         <i className="bi bi-person-circle" ></i>
-                    </div>}
+                    </div>
+                    }
                     {/* <i className="bi bi-text-left" onClick={() => setToggleSide(!toggleSide)}></i> */}
                 </div>
             </div>

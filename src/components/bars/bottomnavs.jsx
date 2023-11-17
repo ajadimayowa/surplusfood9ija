@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Style from './css/bottomNavs.module.css';
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -6,18 +6,19 @@ import { toast } from "react-toastify";
 import LoginModal from "../modals/loginmodal";
 
 
-const BottomNavs = ({}) => {
+const BottomNavs = ({ }) => {
     const currentPath = useLocation().pathname;
     const token = localStorage.getItem('userToken');
     const location = useLocation();
     const navigate = useNavigate();
-    const [showLoginModal,setShowLoginModal] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(false);
 
+    
 
-    const handleExitLogin = ()=>{
+    const handleExitLogin = () => {
         setShowLoginModal(false)
     }
-    
+
     const menus = [
         {
             title: 'Home',
@@ -46,26 +47,28 @@ const BottomNavs = ({}) => {
         },
     ]
 
-    const handleLoginCheck = (pathUrl)=>{
-        if(token){
+    const handleLoginCheck = (pathUrl) => {
+        if (token) {
             navigate(pathUrl)
 
-        } else{
+        } else {
             setShowLoginModal(true)
         }
     }
     return (
-        <div className={`d-flex bg-light justify-content-between w-100 shadow-sm sticky px-4 ${Style.container}`}>
-            <LoginModal on={showLoginModal} off={handleExitLogin}/>
+        <div className={`bg-light justify-content-between w-100 shadow-sm sticky px-4 
+        ${currentPath=='/surplus/register'? Style.offBottomNav : Style.container}`}>
+           
+            <LoginModal on={showLoginModal} off={handleExitLogin} />
             {
-                menus.map((menu,index) => (
-                    <div 
-                    key={index}
-                    onClick={()=>handleLoginCheck(menu.path)}
-                    className="d-flex flex-column text-primary justify-content-center  align-items-center" 
-                    style={{fontFamily:'tFontMd',fontSize:'0.9em', cursor:'pointer'}}>
-                        <i className={`bi ${menu.icon}${currentPath == menu.path?'-fill': ''} p-0 m-0`} style={{fontFamily:'tFontMd',fontSize:'1.4em'}}></i>
-                        <p className="m-0 p-0" style={{fontFamily:'tFon',fontSize:'0.7em'}}>{menu.title}</p>
+                menus.map((menu, index) => (
+                    <div
+                        key={index}
+                        onClick={() => handleLoginCheck(menu.path)}
+                        className="d-flex flex-column text-primary justify-content-center  align-items-center"
+                        style={{ fontFamily: 'tFontMd', fontSize: '0.9em', cursor: 'pointer' }}>
+                        <i className={`bi ${menu.icon}${currentPath == menu.path ? '-fill' : ''} p-0 m-0`} style={{ fontFamily: 'tFontMd', fontSize: '1.4em' }}></i>
+                        <p className="m-0 p-0" style={{ fontFamily: 'tFon', fontSize: '0.7em' }}>{menu.title}</p>
                     </div>
                 ))
             }
