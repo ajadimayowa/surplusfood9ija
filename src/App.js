@@ -24,6 +24,8 @@ import ContactUs from "./usertypes/app/pages/others/contactus";
 import "./custom.scss";
 import HowItWorks from "./usertypes/app/pages/others/howitworks";
 import HomeFrameHolder from "./usertypes/pages/homePageFrame";
+import SearchItemPage from "./usertypes/app/pages/others/searchItem";
+import RegPage from "./usertypes/app/pages/onboarding/pages/registrations";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
           <Route path="/" element={<LoaderPage/>} />
           <Route path="/surplus" element={<HomeFrameHolder/>}>
             <Route index element={<Homepage />}/>
+            <Route path="search" element={<SearchItemPage/>} />
+            <Route path="register" element={<RegPage/>} />
             <Route path="about-us" element={<AboutUs/>} />
             <Route path="how-it-works" element={<HowItWorks/>} />
             <Route path="contact-us" element={<ContactUs/>} />

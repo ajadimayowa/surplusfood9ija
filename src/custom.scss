@@ -39,11 +39,22 @@ input::-webkit-inner-spin-button {
   box-sizing: border-box;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
   background: transparent;
   border: none;
   color: inherit;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 input:focus {

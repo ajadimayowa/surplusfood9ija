@@ -4,7 +4,7 @@ import { Badge, Button, Card, Col, Modal } from 'react-bootstrap';
 import logoFooter from '../../assets/images/logotp.svg';
 import homePic from '../../assets/images/homePicRight.png';
 import pepperDeal from '../../assets/images/pepperDeal.png';
-import { Link, useNavigation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import dollarIcon from '../../assets/icons/dollarIcon.svg';
 import truckIcon from '../../assets/icons/truckIcon.svg';
 import storeIcon from '../../assets/icons/storeIcon.svg';
@@ -18,6 +18,7 @@ const Homepage = (props) => {
     const currentPath = useLocation().pathname;
     const token = localStorage.getItem('userToken');
     const [req, setReq] = useState(false);
+    const navigate = useNavigate()
 
     console.log(currentPath);
 
@@ -109,7 +110,7 @@ const Homepage = (props) => {
     })
     return (
 
-        <div className="m-0 p-0 w-100" style={{ overflow: 'hidden' }}>
+        <div className="m-0 p-0 w-100" style={{ overflow: 'hidden',fontFamily:'tFontMd' }}>
 
             <Modal centered show={req}>
                 <Modal.Header >
@@ -146,14 +147,14 @@ const Homepage = (props) => {
                             We are the New Face
                             of Grocery Shopping.
                         </h5>
-                        <p className="p-0 mt-3 m-0" id="introDesc" style={{ color: '#D8F237' }}>
+                        <p className="w-100 p-0 mt-3 m-0" id="introDesc" style={{ color: '#D8F237' }}>
                             Search for anything near you
                         </p>
 
                         {/* buttons */}
 
-                        <div className="gap-3 mb-3" id="buttonsContainer">{
-                            <InputField placeholder='I am looking for?' formType={'search'}/>
+                        <div className="gap-3 mb-5" id="buttonsContainer">{
+                            <InputField onClick={()=>navigate('/surplus/search')} icon={true} disable={true} placeholder='I am looking for?' formType={'searchButton'}/>
 
                             // <>
                             //     {
@@ -320,7 +321,8 @@ const Homepage = (props) => {
 
                 </div>
                 <div className="p-3 w-100 d-flex justify-content-center bg-transparent">
-                    <Card className="shadow rounded rounded-4 d-flex flex-column gap-3 py-3 mt-3 px-5">
+                    {!token &&
+                        <Card className="shadow rounded rounded-4 d-flex flex-column gap-3 py-3 mt-3 px-5">
 
                         <h4 style={{ fontFamily: 'hanoble' }}>
                             Ready to get started?
@@ -331,14 +333,14 @@ const Homepage = (props) => {
                             your <br /> own boss!
                         </p>
                         <div className="d-flex align-items-center gap-2 mb-2">
-                            <Link to='/app/reg'>
+                            <Link to='/surplus/register'>
                                 <Button>Get started</Button>
                             </Link>
 
                             <p className="p-0 m-0">Contact Support</p>
                         </div>
 
-                    </Card>
+                    </Card>}
 
 
                 </div>

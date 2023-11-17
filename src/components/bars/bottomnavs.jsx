@@ -27,22 +27,22 @@ const BottomNavs = ({}) => {
         {
             title: 'Saved',
             icon: 'bi-basket2',
-            path: '/app/saved'
+            path: '/app/dash'
         },
         {
             title: 'Sell',
             icon: 'bi-bag-check',
-            path: '/app/sell'
+            path: '/app/dash'
         },
         {
             title: 'Messages',
             icon: 'bi-envelope',
-            path: ''
+            path: '/app/dash'
         },
         {
             title: 'Profile',
-            icon: 'bi-person-circle',
-            path: '/app/profile'
+            icon: 'bi-person',
+            path: '/app/dash'
         },
     ]
 
@@ -58,8 +58,9 @@ const BottomNavs = ({}) => {
         <div className={`d-flex bg-light justify-content-between w-100 shadow-sm sticky px-4 ${Style.container}`}>
             <LoginModal on={showLoginModal} off={handleExitLogin}/>
             {
-                menus.map((menu) => (
+                menus.map((menu,index) => (
                     <div 
+                    key={index}
                     onClick={()=>handleLoginCheck(menu.path)}
                     className="d-flex flex-column text-primary justify-content-center  align-items-center" 
                     style={{fontFamily:'tFontMd',fontSize:'0.9em', cursor:'pointer'}}>

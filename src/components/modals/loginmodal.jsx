@@ -7,10 +7,13 @@ import PrimaryButton from "../buttons/primaryButton";
 import { loginUserIn } from "../../usertypes/app/controllers/auth";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { setUserInfo } from "../../usertypes/app/store/slices/userSlice";
+import { useDispatch } from "react-redux";
 
 
 const LoginModal = ({ on, off }) => {
     const [isLoading, setIsLoading] = useState(false)
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const initial = {
         email: '',
@@ -40,12 +43,13 @@ const LoginModal = ({ on, off }) => {
     const handleLogin = async (payload) => {
         setIsLoading(true)
         try {
-           
+
             const res = await loginUserIn(payload);
-            console.log({here:res})
+            console.log({ here: res })
             if (res?.success) {
                 setIsLoading(false)
                 toast.success('Login Successfull');
+                dispatch(setUserInfo(res.data));
                 localStorage.setItem("userToken", res.token);
                 navigate('/app/dash');
             } else {
@@ -61,7 +65,7 @@ const LoginModal = ({ on, off }) => {
         <Modal show={on} centered>
             <Modal.Header>
                 <div className="w-100 d-flex justify-content-between">
-                    <h5 style={{ fontFamily: 'tFont' }}>Kindly login below</h5>
+                    <h5 style={{ fontFamily: 'tFont' }}>Kindly login</h5>
                     <i className="bi bi-x-circle" style={{ cursor: 'pointer', fontWeight: '900' }}
                         onClick={off}
                     ></i>
@@ -83,7 +87,7 @@ const LoginModal = ({ on, off }) => {
                             touched
                         }) => (
                             <form onSubmit={handleSubmit} className="d-flex justify-content-center">
-                                <div className="w-100 align-items-center gap-3 d-flex  flex-column justify-content-center">
+                                <div className="w-100 align-items-center gap-3 d-flex  flex-column justify-content-center" style={{fontFamily:'tFontMd'}}>
                                     <InputField
                                         passInput={handleChange}
                                         errors={errors.email} fieldName={'email'} fieldId={'email'} placeholder={'User Email'} formType={'input'} />
@@ -96,7 +100,11 @@ const LoginModal = ({ on, off }) => {
                                     <p className="w-75 text-center p-0 m-0" style={{ fontSize: '0.8em', fontFamily: 'tFont' }}>
                                         Dont have an account? <span
                                             style={{ cursor: 'pointer' }}
-                                            className="text-primary">Register</span>
+                                            className="text-primary"
+                                            onClick={() => {
+                                                off()
+                                                navigate('/surplus/register')
+                                            }}>Register</span>
                                     </p>
                                 </div>
 
