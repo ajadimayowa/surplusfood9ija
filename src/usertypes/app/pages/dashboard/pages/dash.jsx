@@ -5,11 +5,10 @@ import { Button } from "react-bootstrap";
 
 export default function UserDashboard() {
     const userInfo = JSON.parse(localStorage.getItem('userBio'));
-
-    console.log(userInfo,'hii');
-    let firstName = userInfo?.full_name.slice(' ')
+    console.log(userInfo);
+    let firstName = userInfo?.full_name.slice(' ');
     return (
-        <div className={cssStyle.container} style={{ overflow: 'auto' }}>
+        <div className={cssStyle.container} style={{ overflow: 'auto', fontFamily:'tFontMd' }}>
             <div className="d-flex mt-3 px-3">
                 <div>Hello <span className="fw-bold text-capitalize">{firstName}</span> How are you today?</div>
 

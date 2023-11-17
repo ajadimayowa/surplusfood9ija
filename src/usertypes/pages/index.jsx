@@ -4,7 +4,7 @@ import { Badge, Button, Card, Col, Modal } from 'react-bootstrap';
 import logoFooter from '../../assets/images/logotp.svg';
 import homePic from '../../assets/images/homePicRight.png';
 import pepperDeal from '../../assets/images/pepperDeal.png';
-import { Link, useNavigation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import dollarIcon from '../../assets/icons/dollarIcon.svg';
 import truckIcon from '../../assets/icons/truckIcon.svg';
 import storeIcon from '../../assets/icons/storeIcon.svg';
@@ -18,6 +18,7 @@ const Homepage = (props) => {
     const currentPath = useLocation().pathname;
     const token = localStorage.getItem('userToken');
     const [req, setReq] = useState(false);
+    const navigate = useNavigate()
 
     console.log(currentPath);
 
@@ -109,7 +110,7 @@ const Homepage = (props) => {
     })
     return (
 
-        <div className="m-0 p-0 w-100" style={{ overflow: 'hidden' }}>
+        <div className="m-0 p-0 w-100" style={{ overflow: 'hidden',fontFamily:'tFontMd' }}>
 
             <Modal centered show={req}>
                 <Modal.Header >
@@ -152,8 +153,8 @@ const Homepage = (props) => {
 
                         {/* buttons */}
 
-                        <div className="gap-3 mb-3" id="buttonsContainer">{
-                            <InputField placeholder='I am looking for?' formType={'search'}/>
+                        <div className="gap-3 mb-5" id="buttonsContainer">{
+                            <InputField onClick={()=>navigate('/surplus/search')} icon={true} disable={true} placeholder='I am looking for?' formType={'searchButton'}/>
 
                             // <>
                             //     {

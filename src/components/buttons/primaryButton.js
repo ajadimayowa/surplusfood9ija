@@ -15,7 +15,8 @@ export default function PrimaryButton({title,type,loading}){
                 width:'100%',
                 margin: "0px",
                 paddingLeft: "10px",
-                color:'white'
+                color:'white',
+                fontFamily:'tFont'
               }}
             >{loading?<Spinner size="sm"/>:'Login'}</button>
         </div>

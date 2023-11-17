@@ -3,6 +3,7 @@ import { Outlet, Routes, Route, useLocation, Link, useNavigate } from "react-rou
 import { Button } from "react-bootstrap";
 import logo from '../../../../assets/images/logo.svg';
 import './index.css';
+import BottomNavs from "../../../../components/bars/bottomnavs";
 
 function DashboardPage() {
     const navigate = useNavigate();
@@ -49,7 +50,7 @@ function DashboardPage() {
         navigate('/')
     }
     return (
-        <div className="dashboard-container w-100">
+        <div className="dashboard-container w-100" style={{fontFamily:'tFontMd'}}>
             {/* this is the side bar */}
             <div
                 className="sidenav"
@@ -64,7 +65,7 @@ function DashboardPage() {
                 </div>
                 <ul className="sidenavs d-flex flex-column justify-content-center gap-4" style={{ listStyle: 'none',padding: 0 }}>
                     {
-                        guides.map((tab) => <Link to={tab.path} style={{ zIndex: 2, textDecoration:'none' }}>
+                        guides.map((tab, index) => <Link key={index} to={tab.path} style={{ zIndex: 2, textDecoration:'none' }}>
                             <li className="py-3" 
                             style={{ backgroundColor: tab.path == history.pathname.toString() ? '#fff' : null, color: tab.path == history.pathname.toString() ? '#0b9960' : '#fff' }}>
                                 <div className="gap-4" style={{ display: 'flex', alignItems: 'center', gap: 5, paddingInline: 20, zIndex: 3 }} >
@@ -123,7 +124,7 @@ function DashboardPage() {
                     {<Outlet />}
 
                 </div>
-                {/* //toggle side bar for dashboard */}
+                <BottomNavs/>
 
             </div>
         </div>
