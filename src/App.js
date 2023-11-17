@@ -23,6 +23,7 @@ import Privacy from "./usertypes/app/pages/others/privacy";
 import ContactUs from "./usertypes/app/pages/others/contactus";
 import "./custom.scss";
 import HowItWorks from "./usertypes/app/pages/others/howitworks";
+import HomeFrameHolder from "./usertypes/pages/homePageFrame";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LoaderPage/>} />
-          <Route path="/surplus" element={<HomeHolder/>}>
+          <Route path="/surplus" element={<HomeFrameHolder/>}>
             <Route index element={<Homepage />}/>
             <Route path="about-us" element={<AboutUs/>} />
             <Route path="how-it-works" element={<HowItWorks/>} />
