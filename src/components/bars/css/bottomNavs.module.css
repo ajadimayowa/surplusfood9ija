@@ -5,3 +5,7 @@
   height: 3.5em;
 
 }
+
+.offBottomNav {
+  display: none;
+}

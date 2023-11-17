@@ -18,7 +18,7 @@ export default function PrimaryButton({title,type,loading}){
                 color:'white',
                 fontFamily:'tFont'
               }}
-            >{loading?<Spinner size="sm"/>:'Login'}</button>
+            >{loading?<Spinner size="sm"/>:title}</button>
         </div>
     )
 }

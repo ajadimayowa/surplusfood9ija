@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FormCheck, FormSelect, Modal } from "react-bootstrap";
 import { Formik } from 'formik';
 import * as yup from "yup";
@@ -9,13 +9,13 @@ import InputFieldReg from "../../../../../components/inputfields/inputFieldReg";
 import PrimaryButton from "../../../../../components/buttons/primaryButton";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { loginUserIn,signUserUp } from "../../../controllers/auth";
+import { loginUserIn, signUserUp } from "../../../controllers/auth";
 import LoginModal from "../../../../../components/modals/loginmodal";
 
 const RegPage = () => {
 
     const [isLoading, setIsLoading] = useState(false);
-    const [loginModal,setLoginModal] = useState(false);
+    const [loginModal, setLoginModal] = useState(false);
     const navigate = useNavigate();
     const initial = {
         "full_name": "",
@@ -80,9 +80,16 @@ const RegPage = () => {
 
         }
     }
+
+    const [scrollDirection, setScrollDirection] = useState('none');
+    const [classNames, setClassNames] = useState('');
+
+    
+
+
     return (
         <div className={`${style.container} w-100`}>
-            <LoginModal on={loginModal} off={()=>setLoginModal(false)}/>
+            <LoginModal on={loginModal} off={() => setLoginModal(false)} />
             <div className="w-100 bg-primary text-light align-items-center py-2 justify-content-center text-center"
                 style={{ minHeight: '90px', fontFamily: 'tFont', fontSize: '1em' }}>
                 <h3>Thank You For Picking Interest!</h3>
@@ -90,7 +97,6 @@ const RegPage = () => {
                     <span style={{ fontFamily: 'tFont' }}> support@floatsolutionhub.com</span>
                 </p>
             </div>
-
             <div className="mt-5">
                 <Formik
                     initialValues={initial}
@@ -190,21 +196,21 @@ const RegPage = () => {
 
                                     <div className="d-flex flex-column p-0 m-0" style={{ fontFamily: 'tFontMd', fontSize: '0.8em' }}>
                                         <div className="d-flex text-center gap-2">
-                                        <FormCheck  />
-                                        <p className="p-0 m-0 mb-1">I Accept <a href="google.com" style={{ textDecoration: 'none' }}>Terms</a>  & <a href="google.com" style={{ textDecoration: 'none' }}>Condition</a></p>
+                                            <FormCheck />
+                                            <p className="p-0 m-0 mb-1">I Accept <a href="" style={{ textDecoration: 'none' }}>Terms</a>  & <a href="" style={{ textDecoration: 'none' }}>Condition</a></p>
                                         </div>
 
                                         {touched.terms && errors.terms && <ErrorMessage name="terms" />}
                                     </div>
-                                   
-                                    <PrimaryButton loading={isLoading} type={'submit'} title='Login' />
+
+                                    <PrimaryButton loading={isLoading} type={'submit'} title='Register' />
 
                                     <p className="w-75 text-center p-0 m-0" style={{ fontSize: '0.8em', fontFamily: 'tFont' }}>
                                         Have an account? <span
                                             style={{ cursor: 'pointer' }}
                                             className="text-primary"
                                             onClick={() => {
-                                                navigate('/surplus/register')
+                                                setLoginModal(true)
                                             }}>Login</span>
                                     </p>
                                 </div>
