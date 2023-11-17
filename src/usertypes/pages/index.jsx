@@ -12,6 +12,7 @@ import { footerContents } from "../../assets/constants";
 import CollapsableData from "../../components/collapsibleData";
 import { useLocation } from "react-router-dom";
 import { getWeather } from "../app/controllers/services";
+import InputField from "../../components/inputfields/input";
 
 const Homepage = (props) => {
     const currentPath = useLocation().pathname;
@@ -108,7 +109,7 @@ const Homepage = (props) => {
     })
     return (
 
-        <div className="container-fluid m-0 p-0 w-100" style={{ overflow: 'hidden' }}>
+        <div className="m-0 p-0 w-100" style={{ overflow: 'hidden' }}>
 
             <Modal centered show={req}>
                 <Modal.Header >
@@ -145,50 +146,48 @@ const Homepage = (props) => {
                             We are the New Face
                             of Grocery Shopping.
                         </h5>
-                        <p className="p-0 m-0" id="introDesc" style={{ color: '#D8F237' }}>
-                            Welcome to our online grocery store, your one-stop-shop for all your
-                            grocery needs. We offer a wide variety of fresh produce, pantry
-                            essentials, household items, and more, all available at your
-                            fingertips from the comfort of your own home.
+                        <p className="p-0 mt-3 m-0" id="introDesc" style={{ color: '#D8F237' }}>
+                            Search for anything near you
                         </p>
 
                         {/* buttons */}
 
-                        <div className="gap-3" id="buttonsContainer">{
+                        <div className="gap-3 mb-3" id="buttonsContainer">{
+                            <InputField placeholder='I am looking for?' formType={'search'}/>
 
-                            <>
-                                {
-                                    token == null ?
-                                        <Link className="d-flex justify-content-center" to='/app/reg' style={{ textDecoration: 'none' }}>
-                                            <Button className="mt-3 bg-light py-3 text-primary"
-                                                style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
-                                            >Get Started
-                                            </Button>
-                                        </Link> :
+                            // <>
+                            //     {
+                            //         token == null ?
+                            //             <Link className="d-flex justify-content-center" to='/app/reg' style={{ textDecoration: 'none' }}>
+                            //                 <Button className="mt-3 bg-light py-3 text-primary"
+                            //                     style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
+                            //                 >Get Started
+                            //                 </Button>
+                            //             </Link> :
 
-                                        <Button onClick={() => setReq(true)} className="mt-3 bg-light py-3 text-primary"
-                                            style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
-                                        >Request Service
-                                        </Button>
+                            //             <Button onClick={() => setReq(true)} className="mt-3 bg-light py-3 text-primary"
+                            //                 style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
+                            //             >Request Service
+                            //             </Button>
 
-                                }
+                            //     }
 
-                                {
-                                    token == null ?
-                                        <Link className="d-flex justify-content-center" to='/app/login' style={{ textDecoration: 'none' }}>
-                                            <Button className="mt-3 bg-primary py-3 text-light border-light"
-                                                style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
-                                            >Login
-                                            </Button>
-                                        </Link> :
+                            //     {
+                            //         token == null ?
+                            //             <Link className="d-flex justify-content-center" to='/app/login' style={{ textDecoration: 'none' }}>
+                            //                 <Button className="mt-3 bg-primary py-3 text-light border-light"
+                            //                     style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
+                            //                 >Login
+                            //                 </Button>
+                            //             </Link> :
                                         
-                                        <Button className="mt-3 bg-primary py-3 text-light border-light"
-                                            style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
-                                        >Feed a Child
-                                        </Button>
+                            //             <Button className="mt-3 bg-primary py-3 text-light border-light"
+                            //                 style={{ fontWeight: '600', minWidth: '10em', maxWidth: '12em' }}
+                            //             >Feed a Child
+                            //             </Button>
                                         
-                                }
-                            </>
+                            //     }
+                            // </>
                         }</div>
 
                     </div>
@@ -397,16 +396,7 @@ const Homepage = (props) => {
                     </Col>
 
                 </div>
-            </div>
-            <div style={{ minHeight: '5em', fontSize: '1.5em', backgroundColor: '#fff', zIndex: 30 }} className="d-flex justify-content-end gap-3 px-5">
-                <Link to='https://api.whatsapp.com/message/NSIQY7RHQ2W4C1?autoload=1&app_absent=0'>
-                    <i className="bi bi-whatsapp"></i></Link>
-                <Link to='https://www.instagram.com/surplusfood9ja/'><i className="bi bi-instagram"></i></Link>
-
-            </div>
-
-
-
+            </div> 
         </div>
     )
 }
