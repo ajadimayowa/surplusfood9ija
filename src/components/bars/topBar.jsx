@@ -41,9 +41,12 @@ const TopBar = () => {
                     <li><Link to='about-us' style={{ color: currentPath == '/surplus/about-us' && '#0E6C4D' }}>About us</Link></li>
                     <li><Link to='contact-us' style={{ color: currentPath == '/surplus/contact-us' && '#0E6C4D' }}>Contact us</Link></li>
                 </ul>
-                <Link id="loginButton" onClick={()=>setShowLoginModal(true)}>
+               { token? <i 
+               onClick={()=>navigate('/app/dash')}
+               className="bi bi-person-circle text-primary" style={{fontSize:'1.4em', cursor:'pointer'}}></i> :
+               <Link id="loginButton" onClick={()=>setShowLoginModal(true)}>
                     <Button>Sign in</Button>
-                </Link>
+                </Link>}
                 <div className="toggler text-primary gap-3" style={{ fontSize: '1.3em', cursor: 'pointer', fontFamily:'tFontMd' }}>
                     {token? <i className="bi bi-person-circle" onClick={()=>navigate('/app/dash')}></i> : currentPath == '/surplus/register'?
                     

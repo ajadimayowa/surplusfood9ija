@@ -147,7 +147,7 @@ const Homepage = (props) => {
                             We are the New Face
                             of Grocery Shopping.
                         </h5>
-                        <p className="p-0 mt-3 m-0" id="introDesc" style={{ color: '#D8F237' }}>
+                        <p className="w-100 p-0 mt-3 m-0" id="introDesc" style={{ color: '#D8F237' }}>
                             Search for anything near you
                         </p>
 
@@ -321,7 +321,8 @@ const Homepage = (props) => {
 
                 </div>
                 <div className="p-3 w-100 d-flex justify-content-center bg-transparent">
-                    <Card className="shadow rounded rounded-4 d-flex flex-column gap-3 py-3 mt-3 px-5">
+                    {!token &&
+                        <Card className="shadow rounded rounded-4 d-flex flex-column gap-3 py-3 mt-3 px-5">
 
                         <h4 style={{ fontFamily: 'hanoble' }}>
                             Ready to get started?
@@ -332,14 +333,14 @@ const Homepage = (props) => {
                             your <br /> own boss!
                         </p>
                         <div className="d-flex align-items-center gap-2 mb-2">
-                            <Link to='/app/reg'>
+                            <Link to='/surplus/register'>
                                 <Button>Get started</Button>
                             </Link>
 
                             <p className="p-0 m-0">Contact Support</p>
                         </div>
 
-                    </Card>
+                    </Card>}
 
 
                 </div>
