@@ -1,8 +1,6 @@
 .dashboard-container {
     display: flex;
-    overflow-y: scroll;
-    min-height: 100vh;
-    overflow: auto;
+    overflow:-moz-hidden-unscrollable;
 }
 
 .sidenav{
@@ -44,9 +42,11 @@ background-color: #046956;
 }  
 
 .mainpage {
+    display: flex;;
+    flex-direction: column;
+    /* background-color: red; */
     overflow-y: hidden;
     overflow-x: hidden;
-    min-height: 90vh;
     width: 100%;
 }
 .bi-text-left{

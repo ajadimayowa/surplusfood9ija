@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import logo from '../../../../assets/images/logo.svg';
 import './index.css';
 import BottomNavs from "../../../../components/bars/bottomnavs";
+import TopBar from "../../../../components/bars/topBar";
 
 function DashboardPage() {
     const navigate = useNavigate();
@@ -45,12 +46,12 @@ function DashboardPage() {
         },
     ]
 
-    const handleLogOut = ()=>{
+    const handleLogOut = () => {
         localStorage.clear();
         navigate('/')
     }
     return (
-        <div className="dashboard-container w-100" style={{fontFamily:'tFontMd'}}>
+        <div className="dashboard-container w-100" style={{ fontFamily: 'tFontMd' }}>
             {/* this is the side bar */}
             <div
                 className="sidenav"
@@ -63,41 +64,44 @@ function DashboardPage() {
                         Surplus9ja
                     </p>
                 </div>
-                <ul className="sidenavs d-flex flex-column justify-content-center gap-4" style={{ listStyle: 'none',padding: 0 }}>
+                <ul className="sidenavs d-flex flex-column justify-content-center gap-4" style={{ listStyle: 'none', padding: 0 }}>
                     {
-                        guides.map((tab, index) => <Link key={index} to={tab.path} style={{ zIndex: 2, textDecoration:'none' }}>
-                            <li className="py-3" 
-                            style={{ backgroundColor: tab.path == history.pathname.toString() ? '#fff' : null, color: tab.path == history.pathname.toString() ? '#0b9960' : '#fff' }}>
+                        guides.map((tab, index) => <Link key={index} to={tab.path} style={{ zIndex: 2, textDecoration: 'none' }}>
+                            <li className="py-3"
+                                style={{ backgroundColor: tab.path == history.pathname.toString() ? '#fff' : null, color: tab.path == history.pathname.toString() ? '#0b9960' : '#fff' }}>
                                 <div className="gap-4" style={{ display: 'flex', alignItems: 'center', gap: 5, paddingInline: 20, zIndex: 3 }} >
                                     <span className="p-0 m-0">
-                                    <i className={tab.icon}></i>
+                                        <i className={tab.icon}></i>
                                     </span>
                                     <p className="p-0 m-0">{tab.title}</p>
                                 </div></li></Link>)
                     }
                 </ul>
 
-                <div className="logout py-3 gap-4" 
-                onClick={handleLogOut}
-                style={{ display: 'flex', 
-                alignItems: 'center', gap: 5, 
-                paddingInline: 20, zIndex: 3, color:'#fff' }}>
+                <div className="logout py-3 gap-4"
+                    onClick={handleLogOut}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center', gap: 5,
+                        paddingInline: 20, zIndex: 3, color: '#fff'
+                    }}>
                     <span className="p-0 m-0">
-                    <i className="bi bi-box-arrow-left"></i>
+                        <i className="bi bi-box-arrow-left"></i>
                     </span>
                     <p className="p-0 m-0">Logout</p>
                 </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-                <div className="topnav d-flex align-items-center px-4 justify-content-between">
-                    <a  className="navbar-brand" href="/surplus">
+            <div className="mainpage min-vh-100">
+                <TopBar />
+                {/* <div className="topnav d-flex align-items-center px-4 justify-content-between">
+                    <a className="navbar-brand" href="/surplus">
                         <img src={logo} width="100" height="80" alt="logo" />
                     </a>
                     <i className="bi bi-text-left text-primary" onClick={() => setToggleSide(!toggleSide)} style={{ fontSize: '1.5em' }}></i>
-                </div>
-                <div className="mainpage">
-                <div className={`${toggleSide ? 'sideBarDash' : 'offSideBarDash'} 
+                </div> */}
+
+                {/* <div className={`${toggleSide ? 'sideBarDash' : 'offSideBarDash'} 
             w-100 bg-primary`} style={{ zIndex: 600 }}>
 
                         <ul className="d-flex mobNavLinks flex-column w-100 px-0 gap-2"
@@ -108,26 +112,25 @@ function DashboardPage() {
                             <Link to='/app/dash/sales' onClick={() => setToggleSide(!toggleSide)}><li className="w-100 py-3">Sales</li></Link>
                             <Link to='/app/dash/profile' onClick={() => setToggleSide(!toggleSide)}><li className="w-100 py-3">Profile</li></Link>
                             <Link to='/app/dash/settings' onClick={() => setToggleSide(!toggleSide)}><li className="w-100 py-3">Settings</li></Link>
-                            
+
 
 
                         </ul>
 
                         <div className="d-flex justify-content-center mt-5  w-100"
                             onClick={() => setToggleSide(!toggleSide)}>
-                                <Button onClick={handleLogOut} variant="outline-secondary">Logout</Button>
+                            <Button onClick={handleLogOut} variant="outline-secondary">Logout</Button>
                         </div>
 
-                    </div>
+                    </div> */}
 
-                    {/* main render component page */}
-                    {<Outlet />}
-
-                </div>
-                <BottomNavs/>
-
+                {/* main render component page */}
+                {<Outlet />}
+                <BottomNavs />
             </div>
+
         </div>
+
     )
 }
 export default DashboardPage;

@@ -28,17 +28,17 @@ const BottomNavs = ({ }) => {
         {
             title: 'Saved',
             icon: 'bi-basket2',
-            path: '/app/dash'
+            path: '/app/dash/products'
         },
         {
             title: 'Sell',
             icon: 'bi-bag-check',
-            path: '/app/dash'
+            path: '/app/dash/sales'
         },
         {
             title: 'Messages',
             icon: 'bi-envelope',
-            path: '/app/dash'
+            path: '/app/dash/messages'
         },
         {
             title: 'Profile',
@@ -56,7 +56,7 @@ const BottomNavs = ({ }) => {
         }
     }
     return (
-        <div className={`bg-light justify-content-between w-100 shadow-sm sticky px-4 
+        <div className={`footer bg-light justify-content-between w-100 shadow-sm sticky-bottom px-4 
         ${currentPath=='/surplus/register'? Style.offBottomNav : Style.container}`}>
            
             <LoginModal on={showLoginModal} off={handleExitLogin} />

@@ -27,12 +27,8 @@ export default function HomeFrameHolder(){
         setShowLoginModal(false)
     }
     return (
-        <div className="min-vh-100" style={{overflow:'hidden'}}>
-            <TopBar/>
-            <LoginModal on={showLoginModal} off={handleExitLogin}/>
+        <div>
             {<Outlet/>}
-            {/* <BottomBar/> */}
-            <BottomNavs/>
         </div>
     )
 }

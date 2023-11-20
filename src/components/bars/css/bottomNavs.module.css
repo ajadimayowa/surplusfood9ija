@@ -1,6 +1,6 @@
 .container{
   display: flex;
-  position: absolute;
+  
   bottom: 0px;
   height: 3.5em;
 
@@ -8,4 +8,12 @@
 
 .offBottomNav {
   display: none;
+}
+
+@media screen and (min-width :600px) {
+  .container{
+    display: none;
+    
+  
+  }
 }

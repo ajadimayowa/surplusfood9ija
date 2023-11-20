@@ -28,7 +28,7 @@ const TopBar = () => {
     }
 
     return (
-        <div className={`navbar bg-light shadow-sm sticky px-4 py-0
+        <div className={`navbar bg-light shadow-sm sticky-top px-4 py-0
         justify-content-between align-items-center navbar-expand-lg ${Style.container}`} style={{fontFamily:'tFontMd'}}>
             <LoginModal on={showLoginModal} off={handleExitLogin}/>
             <a className="navbar-brand m-0 p-0" href="/surplus">

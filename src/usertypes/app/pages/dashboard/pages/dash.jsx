@@ -2,11 +2,12 @@ import React from "react";
 import { Outlet, Routes, Route, Link } from "react-router-dom";
 import cssStyle from "./css/dash.module.css"
 import { Button } from "react-bootstrap";
+import BottomNavs from "../../../../../components/bars/bottomnavs";
 
 export default function UserDashboard() {
-    const userInfo = JSON.parse(localStorage.getItem('userBio'));
+    const userInfo = localStorage.getItem('userInfo');
     console.log(userInfo);
-    let firstName = userInfo?.full_name.slice(' ');
+    let firstName = userInfo?.slice(' ');
     return (
         <div className={cssStyle.container} style={{ overflow: 'auto', fontFamily:'tFontMd' }}>
             <div className="d-flex mt-3 px-3">
@@ -29,7 +30,7 @@ export default function UserDashboard() {
                 <Button style={{maxWidth:'10em'}}>Make Suggestions</Button>
                 </Link>
             </div>
-
+/
         </div>
 
 
