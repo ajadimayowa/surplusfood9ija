@@ -13,6 +13,9 @@ import CollapsableData from "../../components/collapsibleData";
 import { useLocation } from "react-router-dom";
 import { getWeather } from "../app/controllers/services";
 import InputField from "../../components/inputfields/input";
+import TopBar from "../../components/bars/topBar";
+import BottomBar from "../../components/bars/bottomBar";
+import BottomNavs from "../../components/bars/bottomnavs";
 
 const Homepage = (props) => {
     const currentPath = useLocation().pathname;
@@ -110,7 +113,8 @@ const Homepage = (props) => {
     })
     return (
 
-        <div className="m-0 p-0 w-100" style={{ overflow: 'hidden',fontFamily:'tFontMd' }}>
+        <div className="m-0 p-0 w-100" style={{fontFamily:'tFontMd' }}>
+            <TopBar/>
 
             <Modal centered show={req}>
                 <Modal.Header >
@@ -337,7 +341,7 @@ const Homepage = (props) => {
                                 <Button>Get started</Button>
                             </Link>
 
-                            <p className="p-0 m-0">Contact Support</p>
+                            <p className="p-0 m-0" style={{cursor:'pointer'}}>Contact Support</p>
                         </div>
 
                     </Card>}
@@ -398,7 +402,8 @@ const Homepage = (props) => {
                     </Col>
 
                 </div>
-            </div> 
+            </div>
+            <BottomNavs/>
         </div>
     )
 }

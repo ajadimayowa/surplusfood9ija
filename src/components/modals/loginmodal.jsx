@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Formik } from 'formik';
+import { Formik, replace } from 'formik';
 import * as yup from "yup";
 import InputField from "../inputfields/input";
 import PrimaryButton from "../buttons/primaryButton";
@@ -50,7 +50,8 @@ const LoginModal = ({ on, off }) => {
                 setIsLoading(false)
                 toast.success('Login Successfull');
                 dispatch(setUserInfo(res.data));
-                localStorage.setItem("userToken", res.token);
+                localStorage.setItem("userInfo",res?.data?.full_name);
+                localStorage.setItem("userToken", res?.token);
                 navigate('/app/dash');
             } else {
                 toast.error('Failed too login');
@@ -95,7 +96,7 @@ const LoginModal = ({ on, off }) => {
                                     <InputField
                                         passInput={handleChange}
                                         errors={errors.password} fieldId={'password'} fieldName={'password'} icon={true} name={'password'} placeholder={'Password'} formType={'password'} />
-                                    <p className="w-75 text-end p-0 m-0" style={{ fontSize: '0.8em' }}>Forgot your password?</p>
+                                    <p className="w-75 text-end p-0 m-0" style={{ fontSize: '0.8em', cursor:'pointer' }}>Forgot your password?</p>
                                     <PrimaryButton loading={isLoading} type={'submit'} title='Login' />
                                     <p className="w-75 text-center p-0 m-0" style={{ fontSize: '0.8em', fontFamily: 'tFont' }}>
                                         Dont have an account? <span

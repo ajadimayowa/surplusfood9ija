@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { loginUserIn, signUserUp } from "../../../controllers/auth";
 import LoginModal from "../../../../../components/modals/loginmodal";
+import TopBar from "../../../../../components/bars/topBar";
 
 const RegPage = () => {
 
@@ -84,11 +85,12 @@ const RegPage = () => {
     const [scrollDirection, setScrollDirection] = useState('none');
     const [classNames, setClassNames] = useState('');
 
-    
+
 
 
     return (
         <div className={`${style.container} w-100`}>
+            <TopBar />
             <LoginModal on={loginModal} off={() => setLoginModal(false)} />
             <div className="w-100 bg-primary text-light align-items-center py-2 justify-content-center text-center"
                 style={{ minHeight: '90px', fontFamily: 'tFont', fontSize: '1em' }}>
@@ -221,7 +223,10 @@ const RegPage = () => {
 
                 </Formik>
             </div>
+            <div className="d-flex footer" style={{ minHeight: '5em' }}>
+                <p></p>
 
+            </div>
         </div>
     )
 }
