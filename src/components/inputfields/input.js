@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import style from "./inputfield.module.css";
 import "./inputfield.module.css";
 
-export default function InputField({disable, icon,fieldId,fieldName, errors, title, onClick, placeholder,inputType,formType,passInput,toggleShow}) {
+export default function InputField({disable, icon,fieldId,fieldName, errors,autoFocus, title, onClick, placeholder,inputType,formType,passInput,toggleShow}) {
  
   const [showPass,setShowPass] = useState(false);
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ if(formType == 'input'){
     <div className="d-flex flex-column" style={{ width: "300px",}}>
     <div className={`${style.container}  rounded rounded-1`}>
       <input
-      autoFocus={true}
+      autoFocus={autoFocus}
       onChange={passInput}
       id={fieldName}
       name={fieldName}
@@ -53,6 +53,7 @@ if(formType == 'input'){
     <div className="d-flex flex-column" style={{ width: "300px",}}>
     <div className={`${style.container} rounded rounded-1`}>
       <input
+      onFocus={autoFocus}
       onChange={passInput}
       id={fieldId}
       name={fieldName}
